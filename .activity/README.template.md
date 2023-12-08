@@ -12,6 +12,6 @@ ${description}
 - Elección múltiple (tipo test): ${multiple_choice}
 - Respuesta corta: ${short_answer}
 
-# Ejemplos
+## Ejemplos
 
 > renderizar aquí algunas preguntas
