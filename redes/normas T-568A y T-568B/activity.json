@@ -1,0 +1,10 @@
+{
+    "name": "Normas T-568A y T-568B",
+    "description": "Preguntas de arrastrar y soltar sobre una imagen y de arrastrar y soltar marcadores",
+    "difficulty": "medium",
+    "author": {
+        "name": "Noemí Pérez",
+        "email": "nperpere@canariaseducacion.es"
+    },
+    "questions": [ "questions.xml" ]
+}
