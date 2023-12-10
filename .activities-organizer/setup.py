@@ -1,15 +1,18 @@
 from setuptools import setup, find_packages
+from __init__ import __version__
 
 setup(
     name = 'activities-organizer',
-    version = '0.0.1',
+    version = __version__,
     packages = find_packages(),  # Encuentra automáticamente paquetes en el directorio actual
     install_requires = [
         'Jinja2',
+        'Pillow',
+        'html2image'
     ],
     entry_points={
         'console_scripts': [
-            'run=activities-organizer.process-activities:main',
+            'run=.activities-organizer.process-activities:main',
         ],
     },
     author = 'Francisco Vargas Ruiz',
