@@ -6,7 +6,7 @@ author: Francisco Vargas Ruiz (fvarrui@canariaseducacion.es)
 # El microprocesador
 
 
-![Dificultad](https://img.shields.io/badge/Dificultad-Baja-green)
+![Dificultad](https://img.shields.io/badge/Dificultad-Media-yellow)
 
 
 Preguntas tipo test, de asociación y de respuesta corta sobre el microprocesador
