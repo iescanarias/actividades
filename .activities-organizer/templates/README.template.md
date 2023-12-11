@@ -24,6 +24,11 @@ Preguntas disponibles en esta actividad:
 {% for type in metadata.stats %}{% set question = metadata.stats[type] %}{% if question.count > 0 %}| ![]({{ question.icon }}) | {{ question.name }} | {{ question.count }} |
 {% endif %}{% endfor %}|   | **TOTAL**         | {{ metadata.total }} |
 
+## Descargas
+
+{% for qu in question_urls %}- [{{ qu.file }}]({{ qu.url }})
+{% endfor%}
+
 ## Ejemplos
 
 > renderizar aquí algunas preguntas

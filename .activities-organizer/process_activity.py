@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
 
 import os
-import sys
 import json
 import xml.etree.ElementTree as ET
-from string import Template
 from jinja2 import Environment, FileSystemLoader
-from __init__ import __icons_url__
+from __init__ import __icons_url__, __raw_url__
 
 # read activity descriptor
 def _read_metadata(activity_path):
     # read file
-    activity_file = f'{activity_path}/activity.json'
+    activity_file = os.path.join(activity_path, 'activity.json')
     with open(activity_file, 'r') as json_file:
         data = json_file.read()
     # parse file
@@ -44,7 +42,7 @@ def _get_stats(activity_path, question_files):
 
 # check if path is an activity
 def _is_activity(path):
-    return os.path.isdir(path) and os.path.isfile(f'{path}/activity.json')
+    return os.path.isdir(path) and os.path.isfile(os.path.join(path, 'activity.json'))
 
 # get stats from questions
 def _generate_images(activity_path, question_files):
@@ -65,15 +63,45 @@ def _generate_images(activity_path, question_files):
             stats[question_type].count += 1            
     return stats
 
-# create README.md file for activity
-def create_readme(activity_path):
+def create_readmes(path, recursive, force):
+    path = os.path.normpath(path)
+    if _is_activity(path):
+        create_readme(path, force)
+    if recursive:
+        for file in os.listdir(path):
+            file = os.path.normpath(os.path.join(path, file))
+            if os.path.isdir(file) and not file.startswith('.'):
+                create_readmes(file, recursive, force)
 
+# create README.md file for activity
+def create_readme(activity_path, force = False):
+    
     # check if path is an activity
     if not _is_activity(activity_path):
         raise Exception(f'Error: {activity_path} no es una actividad')
 
     # read metadata
     metadata = _read_metadata(activity_path)
+
+    # set readme and activity files
+    readme_file = os.path.join(activity_path, 'README.md')
+    activity_file = os.path.join(activity_path, 'activity.json')
+
+    if not force:
+        # check if current README.md is newer than activity.json and skip if it is
+        check_files = [ os.path.basename(activity_file) ]
+        check_files.extend(metadata['questions'])
+        readme_is_old = True
+        for file in check_files:
+            file = os.path.join(activity_path, file)
+            if os.path.isfile(file) and os.path.getmtime(readme_file) < os.path.getmtime(file):
+                readme_is_old = False
+                break
+        if readme_is_old:
+            print(f'Ignorando actividad "{activity_path}". README.md es más reciente que activity.json y que los archivos de preguntas {metadata["questions"]}')
+            return
+
+    print('Creando README.md para actividad en', activity_path, '...')
 
     # get stats and add to metadata
     stats = _get_stats(activity_path, metadata['questions'])
@@ -83,12 +111,23 @@ def create_readme(activity_path):
     # get script path
     module_path = os.path.dirname(os.path.realpath(__file__))
 
+    # question download urls
+    question_urls = []
+    for question in metadata['questions']:
+        question_file = os.path.join(activity_path, question).replace('\\', '/')
+        question_url = {
+            "file": question,
+            "url" : f'{__raw_url__}/{question_file}'
+        }
+        print(question_url)
+        question_urls.append(question_url)
+
     # load and render template
     templates_path = os.path.join(module_path, 'templates')
     env = Environment(loader = FileSystemLoader(templates_path, encoding='utf8'))
     template = env.get_template('README.template.md')
-    readme = template.render(metadata = metadata)    
+    readme = template.render(metadata = metadata, question_urls = question_urls)
 
     # write to file
-    with open(f'{activity_path}/README.md', 'w') as outfile:
+    with open(readme_file, 'w') as outfile:
         outfile.write(readme)

@@ -21,6 +21,11 @@ Preguntas disponibles en esta actividad:
 | ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/package/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 4 |
 |   | **TOTAL**         | 10 |
 
+## Descargas
+
+- [apantallamiento.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/redes/cableado/apantallamiento/apantallamiento.xml)
+
+
 ## Ejemplos
 
 > renderizar aquí algunas preguntas

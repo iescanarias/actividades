@@ -1,0 +1,14 @@
+{
+    "name": "{{ name }}",
+    "description": "{{ description }}",
+    "difficulty": "{{ difficulty}}",
+    "author": {
+        "name": "{{ author_name }}",
+        "email": "{{ author_email }}"
+    },
+    "questions": [ 
+        {% for question in questions %}
+        {{ question }},
+        {% endfor %}
+    ]
+}

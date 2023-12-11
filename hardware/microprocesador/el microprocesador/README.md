@@ -23,6 +23,11 @@ Preguntas disponibles en esta actividad:
 | ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/package/icons/matching.svg) | Emparejamiento | 7 |
 |   | **TOTAL**         | 88 |
 
+## Descargas
+
+- [questions.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/hardware/microprocesador/el microprocesador/questions.xml)
+
+
 ## Ejemplos
 
 > renderizar aquí algunas preguntas
