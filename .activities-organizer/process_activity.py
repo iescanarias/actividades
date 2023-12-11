@@ -8,6 +8,7 @@ import xml.etree.ElementTree as ET
 from __init__ import __icons_url__, __raw_url__
 from jinja2 import Environment, FileSystemLoader
 from urllib.parse import quote
+from time_utils import is_newer_than
 
 # read activity descriptor
 def _read_metadata(activity_path):
@@ -91,13 +92,13 @@ def create_readme(activity_path, force = False):
     activity_file = os.path.join(activity_path, 'activity.json')
 
     if not force:
-        # check if current README.md is newer than activity.json and skip if it is
+        # check if current README.md is newer than activity.json and question files, and skip if it is
         check_files = [ os.path.basename(activity_file) ]
         check_files.extend(metadata['questions'])
         readme_is_old = True
         for file in check_files:
             file = os.path.join(activity_path, file)
-            if os.path.isfile(file) and os.path.getmtime(readme_file) < os.path.getmtime(file):
+            if is_newer_than(file, readme_file):
                 readme_is_old = False
                 break
         if readme_is_old:
