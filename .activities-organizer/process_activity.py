@@ -21,15 +21,15 @@ def _read_metadata(activity_path):
 # get stats from questions
 def _get_stats(activity_path, question_files):
     stats = {
-        'shortanswer': { 'count': 0, 'icon': quote(f'{__icons_url__}/shortanswer.svg'), 'name': 'Respuesta corta'},
-        'multichoice': { 'count': 0, 'icon': quote(f'{__icons_url__}/multichoice.svg'), 'name': 'Opción múltiple'},
-        'truefalse': { 'count': 0, 'icon': quote(f'{__icons_url__}/truefalse.svg'), 'name': 'Verdadero/Falso'},
-        'matching': { 'count': 0, 'icon': quote(f'{__icons_url__}/matching.svg'), 'name': 'Emparejamiento'},
-        'cloze': { 'count': 0, 'icon': quote(f'{__icons_url__}/cloze.svg'), 'name': 'Asociación'},
-        'ddimageortext': { 'count': 0, 'icon': quote(f'{__icons_url__}/ddimageortext.svg'), 'name': 'Arrastrar y soltar sobre una imagen'},
-        'ddmarker': { 'count': 0, 'icon': quote(f'{__icons_url__}/ddmarker.svg'), 'name': 'Arrastrar y soltar marcadores'},
-        'essay': { 'count': 0, 'icon': quote(f'{__icons_url__}/essay.svg'), 'name': 'Ensayo'},
-        'numerical': { 'count': 0, 'icon': quote(f'{__icons_url__}/numerical.svg'), 'name': 'Numérico'},
+        'shortanswer': { 'count': 0, 'icon': f'{__icons_url__}/shortanswer.svg', 'name': 'Respuesta corta'},
+        'multichoice': { 'count': 0, 'icon': f'{__icons_url__}/multichoice.svg', 'name': 'Opción múltiple'},
+        'truefalse': { 'count': 0, 'icon': f'{__icons_url__}/truefalse.svg', 'name': 'Verdadero/Falso'},
+        'matching': { 'count': 0, 'icon': f'{__icons_url__}/matching.svg', 'name': 'Emparejamiento'},
+        'cloze': { 'count': 0, 'icon': f'{__icons_url__}/cloze.svg', 'name': 'Asociación'},
+        'ddimageortext': { 'count': 0, 'icon': f'{__icons_url__}/ddimageortext.svg', 'name': 'Arrastrar y soltar sobre una imagen'},
+        'ddmarker': { 'count': 0, 'icon': f'{__icons_url__}/ddmarker.svg', 'name': 'Arrastrar y soltar marcadores'},
+        'essay': { 'count': 0, 'icon': f'{__icons_url__}/essay.svg', 'name': 'Ensayo'},
+        'numerical': { 'count': 0, 'icon': f'{__icons_url__}/numerical.svg', 'name': 'Numérico'},
     }
     for file in question_files:
         questions_file = f'{activity_path}/{file}'
@@ -117,10 +117,10 @@ def create_readme(activity_path, force = False):
     # question download urls
     question_urls = []
     for question in metadata['questions']:
-        question_file = os.path.join(activity_path, question).replace('\\', '/')
+        question_file = quote(os.path.join(activity_path, question).replace('\\', '/'))
         question_url = {
             "file": question,
-            "url" : quote(f'{__raw_url__}/{question_file}')
+            "url" : f'{__raw_url__}/{question_file}'
         }
         question_urls.append(question_url)
 

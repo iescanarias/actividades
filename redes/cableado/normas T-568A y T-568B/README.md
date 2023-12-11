@@ -17,13 +17,13 @@ Preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddimageortext.svg) | Arrastrar y soltar sobre una imagen | 7 |
-| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 5 |
+| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddimageortext.svg) | Arrastrar y soltar sobre una imagen | 7 |
+| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 5 |
 |   | **TOTAL**         | 12 |
 
 ## Descargas
 
-- [normas T-568A y T-568B.xml](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/redes/cableado/normas%20T-568A%20y%20T-568B/normas%20T-568A%20y%20T-568B.xml)
+- [normas T-568A y T-568B.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/redes/cableado/normas%20T-568A%20y%20T-568B/normas%20T-568A%20y%20T-568B.xml)
 
 
 ## Ejemplos
