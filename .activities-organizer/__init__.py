@@ -1,3 +1,3 @@
 __version__ = "0.0.1"
 __raw_url__ = "https://raw.githubusercontent.com/iescanarias/actividades/main"
-__icons_url__ = f"{__raw_url__}/.activities-organizer/package/icons"
+__icons_url__ = f"{__raw_url__}/.activities-organizer/icons"

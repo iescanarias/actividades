@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 
+
 import os
 import json
 import xml.etree.ElementTree as ET
-from jinja2 import Environment, FileSystemLoader
+
 from __init__ import __icons_url__, __raw_url__
+from jinja2 import Environment, FileSystemLoader
+from urllib.parse import quote
 
 # read activity descriptor
 def _read_metadata(activity_path):
@@ -117,9 +120,8 @@ def create_readme(activity_path, force = False):
         question_file = os.path.join(activity_path, question).replace('\\', '/')
         question_url = {
             "file": question,
-            "url" : f'{__raw_url__}/{question_file}'
+            "url" : quote(f'{__raw_url__}/{question_file}')
         }
-        print(question_url)
         question_urls.append(question_url)
 
     # load and render template
