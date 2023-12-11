@@ -17,8 +17,8 @@ Preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/multichoice.svg) | Opción múltiple | 6 |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 4 |
+| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/multichoice.svg) | Opción múltiple | 6 |
+| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 4 |
 |   | **TOTAL**         | 10 |
 
 ## Descargas

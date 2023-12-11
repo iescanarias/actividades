@@ -17,10 +17,10 @@ Preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/shortanswer.svg) | Respuesta corta | 3 |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/multichoice.svg) | Opción múltiple | 70 |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/truefalse.svg) | Verdadero/Falso | 8 |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/matching.svg) | Emparejamiento | 7 |
+| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/shortanswer.svg) | Respuesta corta | 3 |
+| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/multichoice.svg) | Opción múltiple | 70 |
+| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/truefalse.svg) | Verdadero/Falso | 8 |
+| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/matching.svg) | Emparejamiento | 7 |
 |   | **TOTAL**         | 88 |
 
 ## Descargas

@@ -17,8 +17,8 @@ Preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddimageortext.svg) | Arrastrar y soltar sobre una imagen | 7 |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 5 |
+| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddimageortext.svg) | Arrastrar y soltar sobre una imagen | 7 |
+| ![](https%3A//raw.githubusercontent.com/iescanarias/actividades/main/.activities-organizer/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 5 |
 |   | **TOTAL**         | 12 |
 
 ## Descargas
