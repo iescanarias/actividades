@@ -25,7 +25,7 @@ Preguntas disponibles en esta actividad:
 
 ## Descargas
 
-- [questions.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/hardware/microprocesador/el microprocesador/questions.xml)
+- [questions.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/hardware/microprocesador/el%20microprocesador/questions.xml)
 
 
 ## Ejemplos
