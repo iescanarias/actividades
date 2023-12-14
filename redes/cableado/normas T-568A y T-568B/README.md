@@ -23,7 +23,7 @@ Preguntas disponibles en esta actividad:
 
 ## Descargas
 
-- [normas T-568A y T-568B.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/redes/cableado/normas%20T-568A%20y%20T-568B/normas%20T-568A%20y%20T-568B.xml)
+- [normas T-568A y T-568B.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/./redes/cableado/normas%20T-568A%20y%20T-568B/normas%20T-568A%20y%20T-568B.xml)
 
 
 ## Ejemplos

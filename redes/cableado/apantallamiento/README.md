@@ -23,7 +23,7 @@ Preguntas disponibles en esta actividad:
 
 ## Descargas
 
-- [apantallamiento.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/redes/cableado/apantallamiento/apantallamiento.xml)
+- [apantallamiento.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/./redes/cableado/apantallamiento/apantallamiento.xml)
 
 
 ## Ejemplos
