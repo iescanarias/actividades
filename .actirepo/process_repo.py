@@ -11,15 +11,18 @@ def create_index(repo_path):
     acitivies_list = []
     # walk throuth all directories
     for root, dirs, files in os.walk(repo_path):
-        print(root)
         # check if is an activity
         if _is_activity(root):
             # get metadata
             metadata = _read_metadata(root)
             total = get_num_questions(root)
             activity = {
-                "name": metadata['name']
+                "name": metadata['name'],
+                "description": metadata['description'],
+                "total": total,
             }
             acitivies_list.append(activity)
+
+    print(acitivies_list)
 
 create_index("..")

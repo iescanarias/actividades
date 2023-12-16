@@ -9,9 +9,8 @@ import xml.etree.ElementTree as ET
 from __init__ import __icons_url__, __raw_url__
 from jinja2 import Environment, FileSystemLoader
 from urllib.parse import quote
-from time_utils import is_newer_than
 from image_utils import html2png
-from file_utils import get_valid_filename
+from file_utils import get_valid_filename, is_newer_than
 
 # read activity descriptor
 def _read_metadata(activity_path):
@@ -112,7 +111,7 @@ def create_readmes(path, recursive, force):
             if _is_activity(root):
                 create_readme(root, force)
 
-# create README.md file for activity
+# create README.md file for activity (including some questions rendered as images)
 def create_readme(activity_path, force = False):
     
     # check if path is an activity
@@ -146,7 +145,7 @@ def create_readme(activity_path, force = False):
     # get stats and add to metadata
     stats = _get_stats(activity_path, metadata['questions'])
     metadata['stats'] = stats
-    metadata['total'] = sum([x['count'] for x in stats.values()])
+    metadata['total'] = sum([stat['count'] for stat in stats.values()])
 
     # get script path
     module_path = os.path.dirname(os.path.realpath(__file__))
@@ -180,4 +179,3 @@ def get_num_questions(activity_path):
     stats = _get_stats(activity_path, metadata['questions'])
     total = sum([stat['count'] for stat in stats.values()])
     return total
-

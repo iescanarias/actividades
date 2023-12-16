@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from __init__ import __version__
 
 setup(
-    name = 'activities-organizer',
+    name = 'actirepo',
     version = __version__,
     packages = find_packages(),  # Encuentra automáticamente paquetes en el directorio actual
     install_requires = [
