@@ -7,7 +7,7 @@ from importlib import reload
 from __init__ import __version__
 
 def show_version():
-    print(f"Versión: {__version__}")  # Reemplaza con la información de versión
+    print(f"Versión: {__version__}")
 
 def list_activities():
     print("Lista de actividades: ...")  # Reemplaza con la lógica para listar actividades
@@ -16,11 +16,11 @@ def create_activity(directory=".", recursive=True):
     print(f"Crear actividad en el directorio {directory}: ...")  # Reemplaza con la lógica para crear actividad
 
 def create_readmes(directory, recursive=True, force=False):
-    try:
+    #try:
         process_activity.create_readmes(directory, recursive, force)
-    except Exception as e:
-        print(f"Error: {e}", file=sys.stderr)
-        sys.exit(1)
+    #except Exception as e:
+    #    print(f"Error: {e}", file=sys.stderr)
+    #    sys.exit(1)
 
 def main():
     parser = argparse.ArgumentParser(description="Organizador de actividades")

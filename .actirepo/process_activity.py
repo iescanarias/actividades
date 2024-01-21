@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 import os
 import shutil
 import json
@@ -10,7 +9,7 @@ from __init__ import __icons_url__, __raw_url__
 from jinja2 import Environment, FileSystemLoader
 from urllib.parse import quote
 from image_utils import html2png
-from file_utils import get_valid_filename, is_newer_than
+from file_utils import is_valid_filename, is_newer_than
 
 # read activity descriptor
 def _read_metadata(activity_path):
@@ -50,29 +49,63 @@ def _get_stats(activity_path, question_files):
 def _is_activity(path):
     return os.path.isdir(path) and os.path.isfile(os.path.join(path, 'activity.json'))
 
+# get statement from question, processing attachments
+def _get_statement(question):
+    attachments = [ 
+        {
+            "name": file.get('name'),
+            "path": file.get('path'),
+            "image": f"data:image/png;{file.get('encoding')},{file.text}"
+        } for file in question.find('questiontext').findall('file')
+    ]
+    statement = question.find('questiontext').find('text').text
+
+    for attachment in attachments:
+        statement = statement.replace(f"@@PLUGINFILE@@/{attachment.get("name")}", f"{attachment.get("image")}")
+    return statement
+
+# render question as image
 def _render_image(question, destination_dir):
     type = question.get("type")
-    question_data = {}
+    # create question data
+    question_data = {
+        "type": question.get('type'),
+        "name": question.find('name').find('text').text,
+        "statement": _get_statement(question)
+    }
+    print(f"generando imagen {question_data.get("type")}: ", question_data.get("name"))
+    # check question type
     match type:
         case "truefalse":
-            print("generando imagen truefalse")
-            question_data = {
-                "type": question.get('type'),
-                "name": question.find('name').find('text').text,
-                "statement": question.find('questiontext').find('text').text,
-                "answers": [
-                    {
-                        "text": a.find('text').text,
-                        "feedback": a.find('feedback').find('text').text,
-                        "fraction": float(a.get('fraction'))
-                    } for a in question.findall('answer')
-                ]
-            }
-        #case "shortanswer":
-        #    print("generando imagen shortanswer")
+            question_data.update(
+                { 
+                    "answers": [
+                        {
+                            "text": answer.find('text').text,
+                            "feedback": answer.find('feedback').find('text').text,
+                            "fraction": float(answer.get('fraction'))
+                        } for answer in question.findall('answer')
+                    ]
+                }
+            )
+        case "shortanswer":
+            question_data.update(
+                { 
+                    "answers": [
+                        {
+                            "text": answer.find('text').text,
+                            "feedback": answer.find('feedback').find('text').text,
+                            "fraction": float(answer.get('fraction'))
+                        } for answer in question.findall('answer')
+                    ],
+                    "first_answer": question.findall('answer')[0].find('text').text
+                }
+            )
         case _:
-            #print("Tipo de pregunta desconocida", type)
+            print("Tipo de pregunta desconocida", type)
             return
+
+    print(question_data)
 
     # render html from template
     templates_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates')
@@ -81,8 +114,10 @@ def _render_image(question, destination_dir):
     html = template.render(question = question_data)
 
     # html to image
-    image_file = get_valid_filename(f'{question_data['name']}.png')
+    image_file = is_valid_filename(f'{question_data['name']}.png')
     html2png(html, destination_dir, image_file)
+
+    return image_file
 
 # get stats from questions
 def _generate_images(activity_path, question_files, force = True):
@@ -98,10 +133,9 @@ def _generate_images(activity_path, question_files, force = True):
         tree = ET.parse(questions_file)
         # search "question" tags under "quiz" tag
         for question in tree.findall('question'):
-            # convertir a texto
-            print(ET.tostring(question, encoding='unicode', method='xml'))
             # render image for question
-            _render_image(question, images_dir)
+            if question.get("type") != "category":
+                _render_image(question, images_dir)
 
 def create_readmes(path, recursive, force):
     if not recursive:
