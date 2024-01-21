@@ -5,7 +5,7 @@ import shutil
 import json
 import xml.etree.ElementTree as ET
 
-from __init__ import __icons_url__, __raw_url__
+from __init__ import __icons_url__, __download_url__
 from jinja2 import Environment, FileSystemLoader
 from urllib.parse import quote
 from image_utils import html2png
@@ -190,7 +190,7 @@ def create_readme(activity_path, force = False):
         question_file = quote(os.path.join(activity_path, question).replace('\\', '/'))
         question_url = {
             "file": question,
-            "url" : f'{__raw_url__}/{question_file}'
+            "url" : f'{__download_url__}/{question_file}'
         }
         question_urls.append(question_url)
 

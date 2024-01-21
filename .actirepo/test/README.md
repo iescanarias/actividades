@@ -30,7 +30,7 @@ Preguntas disponibles en esta actividad:
 
 ## Descargas
 
-- [questions.xml](https://raw.githubusercontent.com/iescanarias/actividades/main/./.actirepo/test/questions.xml)
+- [questions.xml](https://github.com/iescanarias/actividades/tree/main/./.actirepo/test/questions.xml)
 
 
 ## Ejemplos
