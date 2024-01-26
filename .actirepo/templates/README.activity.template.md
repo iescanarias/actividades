@@ -31,4 +31,9 @@ Preguntas disponibles en esta actividad:
 
 ## Ejemplos
 
-> renderizar aquí algunas preguntas
+{% for questions_file,image_list in images.items() %}
+### {{questions_file}}
+{% for image in image_list %}
+![{{image}}](images/{{image}})
+{% endfor%}
+{% endfor%}

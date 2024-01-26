@@ -10,10 +10,12 @@ def show_version():
     print(f"Versión: {__version__}")
 
 def list_activities():
-    print("Lista de actividades: ...")  # Reemplaza con la lógica para listar actividades
+    print("Lista de actividades: ...")  
+    # TODO Reemplaza con la lógica para listar actividades
 
 def create_activity(directory=".", recursive=True):
-    print(f"Crear actividad en el directorio {directory}: ...")  # Reemplaza con la lógica para crear actividad
+    print(f"Crear actividad en el directorio {directory}: ...")  
+    # TODO Reemplaza con la lógica para crear actividad
 
 def create_readmes(directory, recursive=True, force=False):
     #try:

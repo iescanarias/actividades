@@ -9,7 +9,7 @@ from __init__ import __icons_url__, __download_url__
 from jinja2 import Environment, FileSystemLoader
 from urllib.parse import quote
 from image_utils import html2png
-from file_utils import is_valid_filename, is_newer_than
+from file_utils import get_valid_filename, is_newer_than
 
 # read activity descriptor
 def _read_metadata(activity_path):
@@ -102,10 +102,9 @@ def _render_image(question, destination_dir):
                 }
             )
         case _:
-            print("Tipo de pregunta desconocida", type)
             return
 
-    print(question_data)
+    # print(question_data)
 
     # render html from template
     templates_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates')
@@ -114,12 +113,18 @@ def _render_image(question, destination_dir):
     html = template.render(question = question_data)
 
     # html to image
-    image_file = is_valid_filename(f'{question_data['name']}.png')
-    html2png(html, destination_dir, image_file)
+    image_filename = _get_valid_image_filename(destination_dir, question_data['name'])
+    html2png(html, destination_dir, image_filename)
 
-    return image_file
+    return image_filename
 
-# get stats from questions
+def _get_valid_image_filename(path, name, index = 0):
+    valid_name = get_valid_filename(name) + f'-{index}'
+    if not os.path.exists(os.path.join(path, f'{valid_name}.png')):
+        return f'{valid_name}.png'
+    return _get_valid_image_filename(path, name, index + 1)
+
+# generate images for questions
 def _generate_images(activity_path, question_files, force = True):
     images_dir = os.path.join(activity_path, "images")
     # if images directory exists and force is true, delete it
@@ -127,7 +132,9 @@ def _generate_images(activity_path, question_files, force = True):
         print("Sobreescribiendo imágenes existentes")
         shutil.rmtree(images_dir)
     # walk through all question files
+    images = {}
     for file in question_files:
+        images[file] = []
         questions_file = os.path.join(activity_path, file)
         # parse Moodle XML file
         tree = ET.parse(questions_file)
@@ -135,7 +142,10 @@ def _generate_images(activity_path, question_files, force = True):
         for question in tree.findall('question'):
             # render image for question
             if question.get("type") != "category":
-                _render_image(question, images_dir)
+                image_file = _render_image(question, images_dir)
+                if not image_file is None:
+                    images[file].append(image_file)
+    return images
 
 def create_readmes(path, recursive, force):
     if not recursive:
@@ -194,18 +204,19 @@ def create_readme(activity_path, force = False):
         }
         question_urls.append(question_url)
 
+    # generate images
+    images = _generate_images(activity_path, metadata['questions'], force)
+    print(images)
+
     # load and render template
     templates_path = os.path.join(module_path, 'templates')
     env = Environment(loader = FileSystemLoader(templates_path, encoding='utf8'))
     template = env.get_template('README.activity.template.md')
-    readme = template.render(metadata = metadata, question_urls = question_urls)
+    readme = template.render(metadata = metadata, question_urls = question_urls, images = images)
 
     # write to file
     with open(readme_file, 'w') as outfile:
         outfile.write(readme)
-
-    # generate images
-    _generate_images(activity_path, metadata['questions'], force)
 
 # get number of questions
 def get_num_questions(activity_path):
