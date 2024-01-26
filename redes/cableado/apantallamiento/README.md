@@ -28,4 +28,6 @@ Preguntas disponibles en esta actividad:
 
 ## Ejemplos
 
-> renderizar aquí algunas preguntas
+
+### apantallamiento.xml
+

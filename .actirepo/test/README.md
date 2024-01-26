@@ -35,4 +35,14 @@ Preguntas disponibles en esta actividad:
 
 ## Ejemplos
 
-> renderizar aquí algunas preguntas
+
+### questions.xml
+
+![respuestacorta-0.png](images/respuestacorta-0.png)
+
+![verdadero_falso-0.png](images/verdadero_falso-0.png)
+
+![verdadero_falsoconimagenadjunta-0.png](images/verdadero_falsoconimagenadjunta-0.png)
+
+![verdadero_falsoconimagenembebida-0.png](images/verdadero_falsoconimagenembebida-0.png)
+

@@ -30,4 +30,28 @@ Preguntas disponibles en esta actividad:
 
 ## Ejemplos
 
-> renderizar aquí algunas preguntas
+
+### questions.xml
+
+![aclaraciones-0.png](images/aclaraciones-0.png)
+
+![aclaraciones-1.png](images/aclaraciones-1.png)
+
+![arquitecturax86-0.png](images/arquitecturax86-0.png)
+
+![tiposdenucleo-0.png](images/tiposdenucleo-0.png)
+
+![velocidaddelbus-0.png](images/velocidaddelbus-0.png)
+
+![velocidaddereloj-0.png](images/velocidaddereloj-0.png)
+
+![velocidaddereloj-1.png](images/velocidaddereloj-1.png)
+
+![voltajemicroprocesador-0.png](images/voltajemicroprocesador-0.png)
+
+![fabricacion-0.png](images/fabricacion-0.png)
+
+![nuevasinstrucciones-0.png](images/nuevasinstrucciones-0.png)
+
+![registros-0.png](images/registros-0.png)
+

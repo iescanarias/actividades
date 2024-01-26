@@ -28,4 +28,6 @@ Preguntas disponibles en esta actividad:
 
 ## Ejemplos
 
-> renderizar aquí algunas preguntas
+
+### normas T-568A y T-568B.xml
+
