@@ -4,50 +4,86 @@ import os
 import shutil
 import json
 import xml.etree.ElementTree as ET
+import mimetypes
 
 from __init__ import __icons_url__, __download_url__
 from jinja2 import Environment, FileSystemLoader
-from urllib.parse import quote
+from url_utils import normalize
 from image_utils import html2png
 from file_utils import get_valid_filename, is_newer_than
+from pprint import pprint
+
+ACTIVITY_FILE = 'activity.json'
+SUPPORTED_TYPES = {
+    'shortanswer':      'Respuesta corta',
+    'multichoice':      'Opción múltiple',
+    'truefalse':        'Verdadero/Falso',
+    'matching':         'Emparejamiento',
+    'cloze':            'Asociación',
+    'ddimageortext':    'Arrastrar y soltar sobre una imagen',
+    'ddmarker':         'Arrastrar y soltar marcadores',
+    'essay':            'Ensayo',
+    'numerical':        'Numérico'
+}
+
+mimetypes.init()
 
 # read activity descriptor
-def _read_metadata(activity_path):
-    # read file
-    activity_file = os.path.join(activity_path, 'activity.json')
+def _read_activity(activity_path):
+    # get full path to activity descriptor
+    activity_file = os.path.join(activity_path, ACTIVITY_FILE)
+    # read activity descriptor
     with open(activity_file, 'r') as json_file:
-        data = json_file.read()
-    # parse file
-    return json.loads(data)
+        content = json_file.read()
+    # parse activity descriptor
+    activity = json.loads(content)
+    # add path to activity descriptor
+    activity.update({
+        'path': activity_path
+    })
+    # if there are no files in activity descriptor, get all files in activity path
+    if not 'files' in activity:
+        activity['files'] = [ file for file in os.listdir(activity_path) if file.endswith('.xml') ]
+    return activity
 
-# get stats from questions
-def _get_stats(activity_path, question_files):
-    stats = {
-        'shortanswer': { 'count': 0, 'icon': f'{__icons_url__}/shortanswer.svg', 'name': 'Respuesta corta'},
-        'multichoice': { 'count': 0, 'icon': f'{__icons_url__}/multichoice.svg', 'name': 'Opción múltiple'},
-        'truefalse': { 'count': 0, 'icon': f'{__icons_url__}/truefalse.svg', 'name': 'Verdadero/Falso'},
-        'matching': { 'count': 0, 'icon': f'{__icons_url__}/matching.svg', 'name': 'Emparejamiento'},
-        'cloze': { 'count': 0, 'icon': f'{__icons_url__}/cloze.svg', 'name': 'Asociación'},
-        'ddimageortext': { 'count': 0, 'icon': f'{__icons_url__}/ddimageortext.svg', 'name': 'Arrastrar y soltar sobre una imagen'},
-        'ddmarker': { 'count': 0, 'icon': f'{__icons_url__}/ddmarker.svg', 'name': 'Arrastrar y soltar marcadores'},
-        'essay': { 'count': 0, 'icon': f'{__icons_url__}/essay.svg', 'name': 'Ensayo'},
-        'numerical': { 'count': 0, 'icon': f'{__icons_url__}/numerical.svg', 'name': 'Numérico'},
+def _get_questions_from_file(activity_path, file):    
+    # get full path to questions file and parse xml
+    questions_file = os.path.join(activity_path, file)
+    tree = ET.parse(questions_file)
+    # search "question" tags under "quiz" tag
+    types = {}
+    for question in tree.findall('question'):
+        # get question type
+        type = question.get('type')
+        # skip if question type is not supported
+        if not type in SUPPORTED_TYPES:
+            continue
+        # check if question type is in types dictionary, and add it if not
+        if not type in types:
+            types[type] = []
+        # add and count question
+        types[type].append(question)
+    # return questions
+    return {
+        'file': file,
+        'url' : normalize(f'{__download_url__}/{activity_path}/{file}'),
+        'types': types,
+        'total': sum([len(type) for type in types.values()])
     }
-    for file in question_files:
-        questions_file = f'{activity_path}/{file}'
-        tree = ET.parse(questions_file)
-        # search "question" tags under "quiz" tag
-        for question in tree.findall('question'):
-            # get question type
-            question_type = question.get('type')
-            # increment stats
-            if question_type in stats: 
-                stats[question_type]['count'] += 1 
-    return stats
+
+# get questions from questions
+def _get_questions(activity):
+    all_questions = []
+    for file in activity['files']:
+        all_questions.append(_get_questions_from_file(activity['path'], file))
+    return all_questions
 
 # check if path is an activity
 def _is_activity(path):
-    return os.path.isdir(path) and os.path.isfile(os.path.join(path, 'activity.json'))
+    return os.path.isdir(path) and os.path.isfile(os.path.join(path, ACTIVITY_FILE))
+
+def _get_mimetype(file):
+    return mimetypes.types_map[os.path.splitext(file.get('name'))[1]]
 
 # get statement from question, processing attachments
 def _get_statement(question):
@@ -55,11 +91,10 @@ def _get_statement(question):
         {
             "name": file.get('name'),
             "path": file.get('path'),
-            "image": f"data:image/png;{file.get('encoding')},{file.text}"
+            "image": f"data:{_get_mimetype(file)};{file.get('encoding')},{file.text}"
         } for file in question.find('questiontext').findall('file')
     ]
     statement = question.find('questiontext').find('text').text
-
     for attachment in attachments:
         statement = statement.replace(f"@@PLUGINFILE@@/{attachment.get("name")}", f"{attachment.get("image")}")
     return statement
@@ -104,8 +139,6 @@ def _render_image(question, destination_dir):
         case _:
             return
 
-    # print(question_data)
-
     # render html from template
     templates_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates')
     env = Environment(loader = FileSystemLoader(templates_path, encoding='utf8'))
@@ -125,28 +158,33 @@ def _get_valid_image_filename(path, name, index = 0):
     return _get_valid_image_filename(path, name, index + 1)
 
 # generate images for questions
-def _generate_images(activity_path, question_files, force = True):
-    images_dir = os.path.join(activity_path, "images")
+def _generate_images(activity, force = True):
+    images_dir = os.path.join(activity['path'], "images")
     # if images directory exists and force is true, delete it
     if os.path.isdir(images_dir) and force:
         print("Sobreescribiendo imágenes existentes")
         shutil.rmtree(images_dir)
-    # walk through all question files
-    images = {}
-    for file in question_files:
-        images[file] = []
-        questions_file = os.path.join(activity_path, file)
-        # parse Moodle XML file
-        tree = ET.parse(questions_file)
-        # search "question" tags under "quiz" tag
-        for question in tree.findall('question'):
-            # render image for question
-            if question.get("type") != "category":
+    # walk through all question files in activity
+    for questions_file in activity['questions']:
+        # create images dictionary
+        images = {}
+        # walk through all questions in file
+        for type,questions in questions_file['types'].items():
+            # walk through all questions of the same type
+            for question in questions:
+                # render image for question
                 image_file = _render_image(question, images_dir)
-                if not image_file is None:
-                    images[file].append(image_file)
-    return images
+                # if image was generated, add it to dictionary
+                if image_file:
+                    # check if question type is in images dictionary, and add it if not
+                    if not type in images:
+                        images[type] = []
+                    # add image to dictionary
+                    images[type].append(image_file)
+        # add images to questions file
+        questions_file['images'] = images
 
+# create README.md files for all activities in path
 def create_readmes(path, recursive, force):
     if not recursive:
         create_readme(path, force)
@@ -162,18 +200,16 @@ def create_readme(activity_path, force = False):
     if not _is_activity(activity_path):
         raise Exception(f'{activity_path} no es una actividad')
 
-    # read metadata
-    metadata = _read_metadata(activity_path)
+    # read activity metadata
+    activity = _read_activity(activity_path)
 
     # set readme and activity files
     readme_file = os.path.join(activity_path, 'README.md')
-    activity_file = os.path.join(activity_path, 'activity.json')
 
     # avoid creating README.md if it is not necessary
     if not force:
         # check if current README.md is newer than activity.json and question files, and skip if it is
-        check_files = [ os.path.basename(activity_file) ]
-        check_files.extend(metadata['questions'])
+        check_files = [ ACTIVITY_FILE ].extend(activity['files'])
         readme_is_old = True
         for file in check_files:
             file = os.path.join(activity_path, file)
@@ -181,46 +217,37 @@ def create_readme(activity_path, force = False):
                 readme_is_old = False
                 break
         if readme_is_old:
-            print(f'Ignorando actividad "{activity_path}". README.md es más reciente que activity.json y que los archivos de preguntas {metadata["questions"]}')
+            print(f'Ignorando actividad "{activity_path}". README.md es más reciente que {ACTIVITY_FILE} y que los archivos de preguntas {activity["questions"]}')
             return
 
-    print('Creando README.md para actividad en', activity_path, '...')
+    title(f'Creando README.md para actividad en {activity_path}...')
 
     # get stats and add to metadata
-    stats = _get_stats(activity_path, metadata['questions'])
-    metadata['stats'] = stats
-    metadata['total'] = sum([stat['count'] for stat in stats.values()])
+    questions = _get_questions(activity)
+    activity['questions'] = questions
+
+    # generate images
+    _generate_images(activity, force)
+    
+    pprint(activity)
 
     # get script path
     module_path = os.path.dirname(os.path.realpath(__file__))
-
-    # question download urls
-    question_urls = []
-    for question in metadata['questions']:
-        question_file = quote(os.path.join(activity_path, question).replace('\\', '/'))
-        question_url = {
-            "file": question,
-            "url" : f'{__download_url__}/{question_file}'
-        }
-        question_urls.append(question_url)
-
-    # generate images
-    images = _generate_images(activity_path, metadata['questions'], force)
-    print(images)
 
     # load and render template
     templates_path = os.path.join(module_path, 'templates')
     env = Environment(loader = FileSystemLoader(templates_path, encoding='utf8'))
     template = env.get_template('README.activity.template.md')
-    readme = template.render(metadata = metadata, question_urls = question_urls, images = images)
+    readme = template.render(activity = activity, SUPPORTED_TYPES = SUPPORTED_TYPES, icons_url = __icons_url__)
 
     # write to file
+    print("generando README.md: ", readme_file)
     with open(readme_file, 'w') as outfile:
         outfile.write(readme)
 
-# get number of questions
-def get_num_questions(activity_path):
-    metadata = _read_metadata(activity_path)
-    stats = _get_stats(activity_path, metadata['questions'])
-    total = sum([stat['count'] for stat in stats.values()])
-    return total
+def title(text):
+    size = len(text)
+    print()
+    print("=" * size)
+    print(text)
+    print("=" * size)

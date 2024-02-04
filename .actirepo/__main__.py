@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-import sys
 import argparse
-import process_activity
+import activity
+
 from importlib import reload
 from __init__ import __version__
 
@@ -19,7 +19,7 @@ def create_activity(directory=".", recursive=True):
 
 def create_readmes(directory, recursive=True, force=False):
     #try:
-        process_activity.create_readmes(directory, recursive, force)
+        activity.create_readmes(directory, recursive, force)
     #except Exception as e:
     #    print(f"Error: {e}", file=sys.stderr)
     #    sys.exit(1)

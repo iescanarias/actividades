@@ -5,6 +5,5 @@
     "author": {
         "name": "John Doe",
         "email": "jdoe@nasa.com"
-    },
-    "questions": [ "questions.xml" ]
+    }
 }

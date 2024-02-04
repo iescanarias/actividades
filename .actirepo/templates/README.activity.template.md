@@ -1,39 +1,37 @@
 ---
-title: {{ metadata.name }}
-author: {{ metadata.author.name }} ({{ metadata.author.email }})
+title: {{ activity.name }}
+author: {{ activity.author.name }} ({{ activity.author.email }})
 ---
 
-# {{ metadata.name }}
+# {{ activity.name }}
 
-{% if metadata.difficulty == 'hard' %}
+{% if activity.difficulty == 'hard' %}
 ![Dificultad](https://img.shields.io/badge/Dificultad-Alta-red)
-{% elif metadata.difficulty == 'medium' %}
+{% elif activity.difficulty == 'medium' %}
 ![Dificultad](https://img.shields.io/badge/Dificultad-Media-yellow)
 {% else %}
 ![Dificultad](https://img.shields.io/badge/Dificultad-Baja-green)
 {% endif %}
 
-{{ metadata.description }}
+{{ activity.description }}
 
 ## Contenido
 
-Preguntas disponibles en esta actividad:
+Ficheros de preguntas disponibles en esta actividad:
+
+{% for questions_file in activity.questions %}
+### [{{questions_file.file}}]({{questions_file.url}})
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-{% for type in metadata.stats %}{% set question = metadata.stats[type] %}{% if question.count > 0 %}| ![]({{ question.icon }}) | {{ question.name }} | {{ question.count }} |
-{% endif %}{% endfor %}|   | **TOTAL**         | {{ metadata.total }} |
+{% for type,questions in questions_file.types.items() %}| ![{{ type }}]({{ icons_url }}/{{ type }}.svg) | {{ SUPPORTED_TYPES[type] }} | {{ questions|length }} |
+{% endfor %}|   | **TOTAL**         | {{ questions_file.total }} |
 
-## Descargas
+{% for type,images in questions_file.images.items() %}
+#### {{SUPPORTED_TYPES[type]}}
+{% if images|length > 0 %}
+![{{images[0]}}](images/{{images[0]}})
+{% endif %}
+{% endfor %}
 
-{% for qu in question_urls %}- [{{ qu.file }}]({{ qu.url }})
-{% endfor%}
-
-## Ejemplos
-
-{% for questions_file,image_list in images.items() %}
-### {{questions_file}}
-{% for image in image_list %}
-![{{image}}](images/{{image}})
-{% endfor%}
-{% endfor%}
+{% endfor %}

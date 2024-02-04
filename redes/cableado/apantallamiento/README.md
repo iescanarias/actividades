@@ -13,21 +13,16 @@ Preguntas de opción múltiple y de arrastrar y soltar marcadores
 
 ## Contenido
 
-Preguntas disponibles en esta actividad:
+Ficheros de preguntas disponibles en esta actividad:
+
+
+### [apantallamiento.xml](https://github.com/iescanarias/actividades/tree/main/./redes/cableado/apantallamiento/apantallamiento.xml)
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | Opción múltiple | 6 |
-| ![](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 4 |
+| ![ddmarker](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 4 |
+| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | Opción múltiple | 6 |
 |   | **TOTAL**         | 10 |
 
-## Descargas
 
-- [apantallamiento.xml](https://github.com/iescanarias/actividades/tree/main/./redes/cableado/apantallamiento/apantallamiento.xml)
-
-
-## Ejemplos
-
-
-### apantallamiento.xml
 
