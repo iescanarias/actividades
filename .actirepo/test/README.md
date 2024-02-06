@@ -16,7 +16,7 @@ Test para probar el funcionamiento del organizador de actividades
 Ficheros de preguntas disponibles en esta actividad:
 
 
-### [questions.xml](https://github.com/iescanarias/actividades/tree/main/./.actirepo/test/questions.xml)
+### [questions.xml](https://github.com/iescanarias/actividades/tree/main/.actirepo/test/questions.xml)
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |

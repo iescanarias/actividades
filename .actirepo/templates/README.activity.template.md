@@ -9,8 +9,10 @@ author: {{ activity.author.name }} ({{ activity.author.email }})
 ![Dificultad](https://img.shields.io/badge/Dificultad-Alta-red)
 {% elif activity.difficulty == 'medium' %}
 ![Dificultad](https://img.shields.io/badge/Dificultad-Media-yellow)
-{% else %}
+{% elif activity.difficulty == 'easy' %}
 ![Dificultad](https://img.shields.io/badge/Dificultad-Baja-green)
+{% else %}
+![Dificultad](https://img.shields.io/badge/Desconocida-gray)
 {% endif %}
 
 {{ activity.description }}

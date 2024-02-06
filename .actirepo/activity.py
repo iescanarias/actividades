@@ -39,7 +39,7 @@ def _read_activity(activity_path):
     activity = json.loads(content)
     # add path to activity descriptor
     activity.update({
-        'path': activity_path
+        'path': os.path.normpath(activity_path)
     })
     # if there are no files in activity descriptor, get all files in activity path
     if not 'files' in activity:

@@ -16,7 +16,7 @@ Preguntas de opción múltiple y de arrastrar y soltar marcadores
 Ficheros de preguntas disponibles en esta actividad:
 
 
-### [apantallamiento.xml](https://github.com/iescanarias/actividades/tree/main/./redes/cableado/apantallamiento/apantallamiento.xml)
+### [apantallamiento.xml](https://github.com/iescanarias/actividades/tree/main/redes/cableado/apantallamiento/apantallamiento.xml)
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |

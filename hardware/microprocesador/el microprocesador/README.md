@@ -16,7 +16,7 @@ Preguntas tipo test, de asociación y de respuesta corta sobre el microprocesado
 Ficheros de preguntas disponibles en esta actividad:
 
 
-### [questions.xml](https://github.com/iescanarias/actividades/tree/main/./hardware/microprocesador/el%20microprocesador/questions.xml)
+### [questions.xml](https://github.com/iescanarias/actividades/tree/main/hardware/microprocesador/el%20microprocesador/questions.xml)
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |

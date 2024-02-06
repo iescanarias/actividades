@@ -16,7 +16,7 @@ Preguntas de arrastrar y soltar sobre una imagen y de arrastrar y soltar marcado
 Ficheros de preguntas disponibles en esta actividad:
 
 
-### [normas T-568A y T-568B.xml](https://github.com/iescanarias/actividades/tree/main/./redes/cableado/normas%20T-568A%20y%20T-568B/normas%20T-568A%20y%20T-568B.xml)
+### [normas T-568A y T-568B.xml](https://github.com/iescanarias/actividades/tree/main/redes/cableado/normas%20T-568A%20y%20T-568B/normas%20T-568A%20y%20T-568B.xml)
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
