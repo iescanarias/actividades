@@ -27,12 +27,12 @@ Ficheros de preguntas disponibles en esta actividad:
 
 #### Arrastrar y soltar marcadores
 
-![07 Arrastrar según apantallamiento externo_0.png](images/07 Arrastrar según apantallamiento externo_0.png)
+![07-arrastrar-segun-apantallamiento-externo_0.png](images/07-arrastrar-segun-apantallamiento-externo_0.png)
 
 
 #### Opción múltiple
 
-![01 Identificar apantallamiento en imagen_0.png](images/01 Identificar apantallamiento en imagen_0.png)
+![01-identificar-apantallamiento-en-imagen_0.png](images/01-identificar-apantallamiento-en-imagen_0.png)
 
 
 

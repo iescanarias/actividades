@@ -10,7 +10,7 @@ from __init__ import __icons_url__, __download_url__
 from jinja2 import Environment, FileSystemLoader
 from url_utils import normalize, encode
 from image_utils import html2png
-from file_utils import get_valid_filename, is_newer_than
+from file_utils import slugify, is_newer_than
 from bs4 import BeautifulSoup
 from pprint import pprint
 
@@ -188,7 +188,7 @@ def _render_image(question, destination_dir):
     return image_filename
 
 def _get_valid_image_filename(path, name, index = 0):
-    valid_name = get_valid_filename(name) + f'_{index}'
+    valid_name = slugify(name) + f'_{index}'
     if not os.path.exists(os.path.join(path, f'{valid_name}.png')):
         return f'{valid_name}.png'
     return _get_valid_image_filename(path, name, index + 1)

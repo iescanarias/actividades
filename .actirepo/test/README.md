@@ -34,22 +34,22 @@ Ficheros de preguntas disponibles en esta actividad:
 
 #### Arrastrar y soltar marcadores
 
-![arrastrar y soltar marcadores_0.png](images/arrastrar y soltar marcadores_0.png)
+![arrastrar-y-soltar-marcadores_0.png](images/arrastrar-y-soltar-marcadores_0.png)
 
 
 #### Opción múltiple
 
-![opción múltiple - respuesta múltiple_0.png](images/opción múltiple - respuesta múltiple_0.png)
+![opcion-multiple-respuesta-multiple_0.png](images/opcion-multiple-respuesta-multiple_0.png)
 
 
 #### Respuesta corta
 
-![respuesta corta_0.png](images/respuesta corta_0.png)
+![respuesta-corta_0.png](images/respuesta-corta_0.png)
 
 
 #### Verdadero/Falso
 
-![verdadero_falso_0.png](images/verdadero_falso_0.png)
+![verdaderofalso_0.png](images/verdaderofalso_0.png)
 
 
 

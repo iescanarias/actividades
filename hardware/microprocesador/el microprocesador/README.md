@@ -29,7 +29,7 @@ Ficheros de preguntas disponibles en esta actividad:
 
 #### Opción múltiple
 
-![arquitectura x86_0.png](images/arquitectura x86_0.png)
+![arquitectura-x86_0.png](images/arquitectura-x86_0.png)
 
 
 #### Verdadero/Falso
