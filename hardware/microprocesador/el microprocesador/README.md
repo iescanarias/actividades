@@ -27,6 +27,11 @@ Ficheros de preguntas disponibles en esta actividad:
 |   | **TOTAL**         | 88 |
 
 
+#### Opción múltiple
+
+![arquitecturax86-0.png](images/arquitecturax86-0.png)
+
+
 #### Verdadero/Falso
 
 ![aclaraciones-0.png](images/aclaraciones-0.png)
@@ -34,7 +39,7 @@ Ficheros de preguntas disponibles en esta actividad:
 
 #### Respuesta corta
 
-![fabricacion-0.png](images/fabricacion-0.png)
+![fabricacion-6.png](images/fabricacion-6.png)
 
 
 

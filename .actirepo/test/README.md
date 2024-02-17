@@ -16,6 +16,21 @@ Test para probar el funcionamiento del organizador de actividades
 Ficheros de preguntas disponibles en esta actividad:
 
 
+### [preguntas-2023-38010797-0020-03 Identificar apantallamiento en imagen-20240217-1720.xml](https://github.com/iescanarias/actividades/tree/main/.actirepo/test/preguntas-2023-38010797-0020-03%20Identificar%20apantallamiento%20en%20imagen-20240217-1720.xml)
+
+|   | Tipo              | Cantidad                   |
+| - | ----------------- | -------------------------- |
+| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | Opción múltiple | 1 |
+|   | **TOTAL**         | 1 |
+
+
+#### Opción múltiple
+
+![03 Identificar apantallamiento en imagen (0).png](images/03 Identificar apantallamiento en imagen (0).png)
+
+
+
+
 ### [questions.xml](https://github.com/iescanarias/actividades/tree/main/.actirepo/test/questions.xml)
 
 |   | Tipo              | Cantidad                   |
@@ -32,14 +47,24 @@ Ficheros de preguntas disponibles en esta actividad:
 |   | **TOTAL**         | 14 |
 
 
+#### Arrastrar y soltar marcadores
+
+![arrastrar y soltar marcadores (0).png](images/arrastrar y soltar marcadores (0).png)
+
+
+#### Opción múltiple
+
+![opción múltiple - respuesta múltiple (0).png](images/opción múltiple - respuesta múltiple (0).png)
+
+
 #### Respuesta corta
 
-![respuestacorta-0.png](images/respuestacorta-0.png)
+![respuesta corta (0).png](images/respuesta corta (0).png)
 
 
 #### Verdadero/Falso
 
-![verdadero_falso-0.png](images/verdadero_falso-0.png)
+![verdadero_falso (0).png](images/verdadero_falso (0).png)
 
 
 

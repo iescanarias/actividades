@@ -25,4 +25,14 @@ Ficheros de preguntas disponibles en esta actividad:
 |   | **TOTAL**         | 10 |
 
 
+#### Arrastrar y soltar marcadores
+
+![07 Arrastrar según apantallamiento externo (0).png](images/07 Arrastrar según apantallamiento externo (0).png)
+
+
+#### Opción múltiple
+
+![01 Identificar apantallamiento en imagen (0).png](images/01 Identificar apantallamiento en imagen (0).png)
+
+
 

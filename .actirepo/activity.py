@@ -8,9 +8,10 @@ import mimetypes
 
 from __init__ import __icons_url__, __download_url__
 from jinja2 import Environment, FileSystemLoader
-from url_utils import normalize
+from url_utils import normalize, encode
 from image_utils import html2png
 from file_utils import get_valid_filename, is_newer_than
+from bs4 import BeautifulSoup
 from pprint import pprint
 
 ACTIVITY_FILE = 'activity.json'
@@ -38,9 +39,7 @@ def _read_activity(activity_path):
     # parse activity descriptor
     activity = json.loads(content)
     # add path to activity descriptor
-    activity.update({
-        'path': os.path.normpath(activity_path)
-    })
+    activity['path'] = os.path.normpath(activity_path)
     # if there are no files in activity descriptor, get all files in activity path
     if not 'files' in activity:
         activity['files'] = [ file for file in os.listdir(activity_path) if file.endswith('.xml') ]
@@ -60,9 +59,9 @@ def _get_questions_from_file(activity_path, file):
             continue
         # check if question type is in types dictionary, and add it if not
         if not type in types:
-            types[type] = []
-        # add and count question
-        types[type].append(question)
+            types[type] = [ question ]
+        else:
+            types[type].append(question)
     # return questions
     return {
         'file': file,
@@ -85,19 +84,23 @@ def _is_activity(path):
 def _get_mimetype(file):
     return mimetypes.types_map[os.path.splitext(file.get('name'))[1]]
 
-# get statement from question, processing attachments
-def _get_statement(question):
+# process attachments in question element
+def _process_attachments(element):
     attachments = [ 
         {
             "name": file.get('name'),
             "path": file.get('path'),
+            "type": _get_mimetype(file),
             "image": f"data:{_get_mimetype(file)};{file.get('encoding')},{file.text}"
-        } for file in question.find('questiontext').findall('file')
+        } for file in element.findall('file')
     ]
-    statement = question.find('questiontext').find('text').text
+    html = BeautifulSoup(element.find('text').text, 'html.parser')
     for attachment in attachments:
-        statement = statement.replace(f"@@PLUGINFILE@@/{attachment.get("name")}", f"{attachment.get("image")}")
-    return statement
+        for img in html.find_all('img'):
+            if f"@@PLUGINFILE@@{attachment.get('path')}{encode(attachment.get('name'))}" in img.get('src'):
+                img['class'] = img.get('class', []) + ['img-fluid']
+                img['src'] = attachment.get('image')
+    return html.prettify()
 
 # render question as image
 def _render_image(question, destination_dir):
@@ -106,7 +109,7 @@ def _render_image(question, destination_dir):
     question_data = {
         "type": question.get('type'),
         "name": question.find('name').find('text').text,
-        "statement": _get_statement(question)
+        "statement": _process_attachments(question.find('questiontext'))
     }
     print(f"generando imagen {question_data.get("type")}: ", question_data.get("name"))
     # check question type
@@ -136,9 +139,37 @@ def _render_image(question, destination_dir):
                     "first_answer": question.findall('answer')[0].find('text').text
                 }
             )
+        case "multichoice":
+            question_data.update(
+                { 
+                    "answers": [
+                        {
+                            "text": answer.find('text').text.replace('<p>', '<p style="margin:0px 0px 7.5px;margin-top:0px;margin-bottom:7.5px;box-sizing:border-box;">'),
+                            "feedback": answer.find('feedback').find('text').text,
+                            "fraction": float(answer.get('fraction')),
+                            "letter": chr(65 + i).lower()
+                        } for i, answer in enumerate(question.findall('answer'))
+                    ],
+                    "single": len([ answer for answer in question.findall('answer') if float(answer.get('fraction')) > 0 ]) == 1
+                }
+            )
+        case "ddmarker":
+            background_file = question.find('file')
+            question_data.update(
+                { 
+                    "drags": [
+                        {
+                            "no": int(drag.find('no').text),
+                            "text": drag.find('text').text
+                        } for drag in question.findall('drag')
+                    ],
+                    "background": f"data:{_get_mimetype(background_file)};{background_file.get('encoding')},{background_file.text}",
+                    "icon": f"{__icons_url__}/crosshairs.png"
+                }
+            )
         case _:
             return
-
+        
     # render html from template
     templates_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates')
     env = Environment(loader = FileSystemLoader(templates_path, encoding='utf8'))
@@ -149,10 +180,15 @@ def _render_image(question, destination_dir):
     image_filename = _get_valid_image_filename(destination_dir, question_data['name'])
     html2png(html, destination_dir, image_filename)
 
+    # writes html to file
+    #html_filename = image_filename.replace('.png', '.html')
+    #with open(os.path.join(destination_dir, html_filename), 'w') as outfile:
+    #    outfile.write(html)
+    
     return image_filename
 
 def _get_valid_image_filename(path, name, index = 0):
-    valid_name = get_valid_filename(name) + f'-{index}'
+    valid_name = get_valid_filename(name) + f' ({index})'
     if not os.path.exists(os.path.join(path, f'{valid_name}.png')):
         return f'{valid_name}.png'
     return _get_valid_image_filename(path, name, index + 1)

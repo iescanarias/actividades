@@ -25,4 +25,9 @@ Ficheros de preguntas disponibles en esta actividad:
 |   | **TOTAL**         | 12 |
 
 
+#### Arrastrar y soltar marcadores
+
+![05 Arrastrar marcadores a panel de parcheo T-568A con código colores (0).png](images/05 Arrastrar marcadores a panel de parcheo T-568A con código colores (0).png)
+
+
 

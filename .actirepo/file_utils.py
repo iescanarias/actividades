@@ -12,7 +12,7 @@ Raises:
 """
 def get_valid_filename(name):
     s = str(name).strip().replace("/", "_")
-    s = re.sub(r"(?u)[^-\w.]", "", s)
+    s = re.sub(r"(?u)[^- \w.]", "", s)
     if s in {"", ".", ".."}:
         raise Exception(f"Error: {name} is not a valid filename")
     return s
