@@ -1,0 +1,30 @@
+<div style="color:rgb(0, 26, 30);background-color:rgb(231, 243, 245);border-color:rgb(184, 220, 226);position:relative;padding:12px 20px;margin-bottom:16px;border:0px solid rgb(184, 220, 226);border-radius:4px;box-sizing:border-box; width: 800px;">
+    <div style="margin-bottom:7.5px;box-sizing:border-box;display:block;">
+        {{ question.statement }}
+    </div>
+    <div style="box-sizing:border-box;text-align:center;">
+        <div style="box-sizing:border-box;display:inline-block;position:relative;">
+            <img src="{{ question.background }}" alt="Imagen de fondo para arrastrar marcadores dentro de este" style="width: 100% !important;max-width:100%;height: auto;vertical-align:middle;border-style:solid;box-sizing:border-box;border:1px solid rgb(0, 0, 0);margin: 0px auto;" />
+            <div style="box-sizing:border-box;position:absolute;top:0px;left:0px;">
+                {% for choice, drop in question.drops.items() %}
+                <div tabindex="0" style="width: {{ question.drags[choice].size[0] }}px; height: {{ question.drags[choice].size[1] }}px; left: {{ drop.xleft }}px; top: {{ drop.ytop }}px; transform: scale(1); transform-origin: left top;transform:matrix(1, 0, 0, 1, 0, 0);transform-origin:0px 0px;box-sizing:border-box;background-color:rgb(255, 255, 255);display:block;position:absolute;opacity:0.5;border:1px solid rgb(0, 0, 0);"><span style="position:absolute;width: 1px;height:1px;padding:0px;margin:-1px;overflow:hidden;clip:rect(0px, 0px, 0px, 0px);white-space:nowrap;border:0px none rgb(0, 26, 30);box-sizing:border-box;">vacío</span>&nbsp;</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div style="box-sizing:border-box;">
+            {% for no, drag in question.drags.items() %}
+            {% if drag.type == 'image' %}
+            <div style="box-sizing:border-box;">
+                <img src="{{ drag.image }}" alt="{{ drag.text }}" style="padding: 5px;vertical-align:top;border-style:solid;box-sizing:border-box;background-color:rgb(255, 255, 255);display:none;margin:5px;height: auto;width: auto;cursor:move;border:1px solid rgb(0, 0, 0);font:13px / 16.003px arial, helvetica, clean, sans-serif;" />
+                <img src="{{ drag.image }}" alt="{{ drag.text }}" style="padding: 5px;user-select:none;vertical-align:top;border-style:solid;box-sizing:border-box;background-color:rgb(255, 255, 255);margin:5px;height: auto;width: auto;cursor:move;border:1px solid rgb(0, 0, 0);display:inline-block;font:13px / 16.003px arial, helvetica, clean, sans-serif;" />
+            </div>
+            {% else %}
+            <div style="box-sizing:border-box;">
+                <div style="padding: 5px;box-sizing:border-box;background-color:rgb(220, 220, 220);border-radius:0px 0px 0px 0px;display:none;vertical-align:top;margin:5px;height: auto;width: auto;cursor:move;border:1px solid rgb(0, 0, 0);font:13px / 16.003px arial, helvetica, clean, sans-serif;">{{ drag.text }}</div>
+                <div style="padding: 5px;user-select:none;box-sizing:border-box;background-color:rgb(220, 220, 220);border-radius:0px 0px 0px 0px;vertical-align:top;margin:5px;height: auto;width: auto;cursor:move;border:1px solid rgb(0, 0, 0);display:inline-block;font:13px / 16.003px arial, helvetica, clean, sans-serif;">{{ drag.text }}</div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -25,6 +25,25 @@ Ficheros de preguntas disponibles en esta actividad:
 |   | **TOTAL**         | 12 |
 
 
+#### Arrastrar y soltar sobre una imagen
+
+
+![01-arrastrar-etiquetas-sobre-conector-con-norma-t-568a_0.png](images/01-arrastrar-etiquetas-sobre-conector-con-norma-t-568a_0.png)
+
+![02-arrastrar-etiquetas-sobre-conector-con-norma-t-568b_0.png](images/02-arrastrar-etiquetas-sobre-conector-con-norma-t-568b_0.png)
+
+![03-arrastrar-etiquetas-para-formar-cable-directo-t-568a_0.png](images/03-arrastrar-etiquetas-para-formar-cable-directo-t-568a_0.png)
+
+![04-arrastrar-etiquetas-para-formar-cable-cruzado_0.png](images/04-arrastrar-etiquetas-para-formar-cable-cruzado_0.png)
+
+![09-arrastrar-marcadores-a-panel-de-parcheo-t-568a-sin-codigo-colores_0.png](images/09-arrastrar-marcadores-a-panel-de-parcheo-t-568a-sin-codigo-colores_0.png)
+
+![10-arrastrar-marcadores-a-panel-de-parcheo-t-568a-sin-codigo-colores_0.png](images/10-arrastrar-marcadores-a-panel-de-parcheo-t-568a-sin-codigo-colores_0.png)
+
+![12-arrastrar-etiquetas-sobre-conector-hembra-rj-45-norma-t-568a_0.png](images/12-arrastrar-etiquetas-sobre-conector-hembra-rj-45-norma-t-568a_0.png)
+
+
+
 #### Arrastrar y soltar marcadores
 
 

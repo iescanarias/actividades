@@ -32,6 +32,13 @@ Ficheros de preguntas disponibles en esta actividad:
 |   | **TOTAL**         | 14 |
 
 
+#### Arrastrar y soltar sobre una imagen
+
+
+![arrastrar-y-soltar-sobre-una-imagen_0.png](images/arrastrar-y-soltar-sobre-una-imagen_0.png)
+
+
+
 #### Arrastrar y soltar marcadores
 
 

@@ -5,14 +5,17 @@ import shutil
 import json
 import xml.etree.ElementTree as ET
 import mimetypes
+import io
+import base64
 
 from __init__ import __icons_url__, __download_url__
 from jinja2 import Environment, FileSystemLoader
 from url_utils import normalize, encode
-from image_utils import html2png
+from image_utils import html2png, htmlsize
 from file_utils import slugify, is_newer_than, anchorify
 from bs4 import BeautifulSoup
 from pprint import pprint
+from PIL import Image
 
 ACTIVITY_FILE = 'activity.json'
 SUPPORTED_TYPES = {
@@ -85,8 +88,18 @@ def _get_questions(activity):
 def _is_activity(path):
     return os.path.isdir(path) and os.path.isfile(os.path.join(path, ACTIVITY_FILE))
 
+# get mimetype from file
 def _get_mimetype(file):
+    if file is None:
+        return None
     return mimetypes.types_map[os.path.splitext(file.get('name'))[1]]
+
+# get image dimensions
+def _get_image_size(file):
+    if file is None:
+        return None
+    with Image.open(io.BytesIO(base64.decodebytes(bytes(file.text, "utf-8")))) as img:
+        return img.size
 
 # process attachments in question element
 def _process_attachments(element):
@@ -105,6 +118,16 @@ def _process_attachments(element):
                 img['class'] = img.get('class', []) + ['img-fluid']
                 img['src'] = attachment.get('image')
     return html.prettify()
+
+# get size of text
+def _drop_text_size(text):
+    html = f"""
+    <div style="box-sizing:border-box;">
+        <div style="padding: 5px;box-sizing:border-box;background-color:rgb(220, 220, 220);border-radius:0px 10px 0px 0px;display:none;vertical-align:top;margin:5px;height: auto;width: auto;cursor:move;border:1px solid rgb(0, 0, 0);font:13px / 16.003px arial, helvetica, clean, sans-serif;">{text}</div>
+        <div style="padding: 5px;user-select:none;box-sizing:border-box;background-color:rgb(220, 220, 220);border-radius:0px 10px 0px 0px;vertical-align:top;margin:5px;height: auto;width: auto;cursor:move;border:1px solid rgb(0, 0, 0);display:inline-block;font:13px / 16.003px arial, helvetica, clean, sans-serif;">{text}</div>
+    </div>
+    """
+    return htmlsize(html)
 
 # render question as image
 def _render_image(question, destination_dir):
@@ -171,6 +194,33 @@ def _render_image(question, destination_dir):
                     "icon": f"{__icons_url__}/crosshairs.png"
                 }
             )
+        case "ddimageortext":
+            background_file = question.find('file')
+            question_data.update(
+                { 
+                    "background": f"data:{_get_mimetype(background_file)};{background_file.get('encoding')},{background_file.text}",
+                    "drags": {
+                        int(drag.find('no').text) : {
+                            "no": int(drag.find('no').text),
+                            "text": drag.find('text').text,
+                            "type": "text" if drag.find('file') is None else "image",
+                            "image": f"data:{_get_mimetype(drag.find('file'))};{drag.find('file').get('encoding')},{drag.find('file').text}" if drag.find('file') is not None else None,
+                            "size": _drop_text_size(drag.find('text').text) if drag.find('file') is None else _get_image_size(drag.find('file')),
+                            "draggroup": int(drag.find('draggroup').text)
+                        } for drag in question.findall('drag')
+                    },
+                    "drops": {
+                        int(drop.find('choice').text) : {
+                            "no": int(drop.find('no').text),
+                            "text": drop.find('text').text,
+                            "choice": int(drop.find('choice').text),
+                            "xleft": int(drop.find('xleft').text),
+                            "ytop": int(drop.find('ytop').text)
+                        } for drop in question.findall('drop')
+                    }
+                }
+            )
+            pprint(question_data)
         case _:
             return
         
