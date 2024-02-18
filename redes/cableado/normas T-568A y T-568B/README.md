@@ -20,14 +20,24 @@ Ficheros de preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![ddimageortext](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddimageortext.svg) | Arrastrar y soltar sobre una imagen | 7 |
-| ![ddmarker](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 5 |
+| ![ddimageortext](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddimageortext.svg) | [Arrastrar y soltar sobre una imagen](#arrastrar-y-soltar-sobre-una-imagen) | 7 |
+| ![ddmarker](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddmarker.svg) | [Arrastrar y soltar marcadores](#arrastrar-y-soltar-marcadores) | 5 |
 |   | **TOTAL**         | 12 |
 
 
 #### Arrastrar y soltar marcadores
 
+
 ![05-arrastrar-marcadores-a-panel-de-parcheo-t-568a-con-codigo-colores_0.png](images/05-arrastrar-marcadores-a-panel-de-parcheo-t-568a-con-codigo-colores_0.png)
+
+![06-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_0.png](images/06-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_0.png)
+
+![07-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_0.png](images/07-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_0.png)
+
+![08-arrastrar-marcadores-a-panel-de-parcheo-t-568b-sin-codigo-colores_0.png](images/08-arrastrar-marcadores-a-panel-de-parcheo-t-568b-sin-codigo-colores_0.png)
+
+![11-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_0.png](images/11-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_0.png)
+
 
 
 

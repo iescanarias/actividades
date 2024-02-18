@@ -26,6 +26,7 @@ SUPPORTED_TYPES = {
     'essay':            'Ensayo',
     'numerical':        'Numérico'
 }
+SLUGGED_TYPES = { key : slugify(value) for key, value in SUPPORTED_TYPES.items() }
 
 mimetypes.init()
 
@@ -43,6 +44,9 @@ def _read_activity(activity_path):
     # if there are no files in activity descriptor, get all files in activity path
     if not 'files' in activity:
         activity['files'] = [ file for file in os.listdir(activity_path) if file.endswith('.xml') ]
+    # if there is no limit in activity descriptor, set it to max int
+    if not 'limit' in activity:
+        activity['limit'] = 9999
     return activity
 
 def _get_questions_from_file(activity_path, file):    
@@ -206,18 +210,22 @@ def _generate_images(activity, force = True):
         images = {}
         # walk through all questions in file
         for type,questions in questions_file['types'].items():
+            count = 0
             # walk through all questions of the same type
             for question in questions:
                 # render image for question
                 image_file = _render_image(question, images_dir)
                 # if image was generated, add it to dictionary
                 if image_file:
+                    count += 1
                     # check if question type is in images dictionary, and add it if not
                     if not type in images:
-                        images[type] = []
-                    # add image to dictionary
-                    images[type].append(image_file)
-        # add images to questions file
+                        images[type] = [ image_file ]
+                    else:
+                        images[type].append(image_file)
+                if count >= activity['limit']:
+                    break
+        # add images to questions file  
         questions_file['images'] = images
 
 # create README.md files for all activities in path
@@ -274,7 +282,7 @@ def create_readme(activity_path, force = False):
     templates_path = os.path.join(module_path, 'templates')
     env = Environment(loader = FileSystemLoader(templates_path, encoding='utf8'))
     template = env.get_template('README.activity.template.md')
-    readme = template.render(activity = activity, SUPPORTED_TYPES = SUPPORTED_TYPES, icons_url = __icons_url__)
+    readme = template.render(activity = activity, SUPPORTED_TYPES = SUPPORTED_TYPES, SLUGGED_TYPES = SLUGGED_TYPES, icons_url = __icons_url__)
 
     # write to file
     print("generando README.md: ", readme_file)

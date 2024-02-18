@@ -20,36 +20,50 @@ Ficheros de preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![ddimageortext](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddimageortext.svg) | Arrastrar y soltar sobre una imagen | 1 |
-| ![ddmarker](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddmarker.svg) | Arrastrar y soltar marcadores | 1 |
-| ![essay](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/essay.svg) | Ensayo | 3 |
-| ![matching](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/matching.svg) | Emparejamiento | 1 |
-| ![cloze](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/cloze.svg) | Asociación | 1 |
-| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | Opción múltiple | 2 |
-| ![numerical](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/numerical.svg) | Numérico | 1 |
-| ![shortanswer](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/shortanswer.svg) | Respuesta corta | 1 |
-| ![truefalse](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/truefalse.svg) | Verdadero/Falso | 3 |
+| ![ddimageortext](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddimageortext.svg) | [Arrastrar y soltar sobre una imagen](#arrastrar-y-soltar-sobre-una-imagen) | 1 |
+| ![ddmarker](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddmarker.svg) | [Arrastrar y soltar marcadores](#arrastrar-y-soltar-marcadores) | 1 |
+| ![essay](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/essay.svg) | [Ensayo](#ensayo) | 3 |
+| ![matching](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/matching.svg) | [Emparejamiento](#emparejamiento) | 1 |
+| ![cloze](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/cloze.svg) | [Asociación](#asociacion) | 1 |
+| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | [Opción múltiple](#opcion-multiple) | 2 |
+| ![numerical](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/numerical.svg) | [Numérico](#numerico) | 1 |
+| ![shortanswer](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/shortanswer.svg) | [Respuesta corta](#respuesta-corta) | 1 |
+| ![truefalse](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/truefalse.svg) | [Verdadero/Falso](#verdaderofalso) | 3 |
 |   | **TOTAL**         | 14 |
 
 
 #### Arrastrar y soltar marcadores
 
+
 ![arrastrar-y-soltar-marcadores_0.png](images/arrastrar-y-soltar-marcadores_0.png)
+
 
 
 #### Opción múltiple
 
+
 ![opcion-multiple-respuesta-multiple_0.png](images/opcion-multiple-respuesta-multiple_0.png)
+
+![opcion-multiple-respuesta-simple_0.png](images/opcion-multiple-respuesta-simple_0.png)
+
 
 
 #### Respuesta corta
 
+
 ![respuesta-corta_0.png](images/respuesta-corta_0.png)
+
 
 
 #### Verdadero/Falso
 
+
 ![verdaderofalso_0.png](images/verdaderofalso_0.png)
+
+![verdaderofalso-con-imagen-adjunta_0.png](images/verdaderofalso-con-imagen-adjunta_0.png)
+
+![verdaderofalso-con-imagen-embebida_0.png](images/verdaderofalso-con-imagen-embebida_0.png)
+
 
 
 

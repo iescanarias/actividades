@@ -26,13 +26,17 @@ Ficheros de preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-{% for type,questions in questions_file.types.items() %}| ![{{ type }}]({{ icons_url }}/{{ type }}.svg) | {{ SUPPORTED_TYPES[type] }} | {{ questions|length }} |
+{% for type,questions in questions_file.types.items() %}| ![{{ type }}]({{ icons_url }}/{{ type }}.svg) | [{{ SUPPORTED_TYPES[type] }}](#{{ SLUGGED_TYPES[type] }}) | {{ questions|length }} |
 {% endfor %}|   | **TOTAL**         | {{ questions_file.total }} |
 
 {% for type,images in questions_file.images.items() %}
 #### {{SUPPORTED_TYPES[type]}}
 {% if images|length > 0 %}
-![{{images[0]}}](images/{{images[0]}})
+{% for i in range(0, [images|length, activity.limit]|min) %}
+![{{images[i]}}](images/{{images[i]}})
+{% endfor %}
+{% else %}
+Imágenes aún no disponibles.
 {% endif %}
 {% endfor %}
 
