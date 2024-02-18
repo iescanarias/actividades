@@ -21,7 +21,7 @@ Ficheros de preguntas disponibles en esta actividad:
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
 | ![ddmarker](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddmarker.svg) | [Arrastrar y soltar marcadores](#arrastrar-y-soltar-marcadores) | 4 |
-| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | [Opción múltiple](#opcion-multiple) | 6 |
+| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | [Opción múltiple](#opción-múltiple) | 6 |
 |   | **TOTAL**         | 10 |
 
 

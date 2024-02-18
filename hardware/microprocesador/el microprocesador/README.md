@@ -20,7 +20,7 @@ Ficheros de preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | [Opción múltiple](#opcion-multiple) | 70 |
+| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | [Opción múltiple](#opción-múltiple) | 70 |
 | ![truefalse](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/truefalse.svg) | [Verdadero/Falso](#verdaderofalso) | 8 |
 | ![matching](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/matching.svg) | [Emparejamiento](#emparejamiento) | 7 |
 | ![shortanswer](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/shortanswer.svg) | [Respuesta corta](#respuesta-corta) | 3 |

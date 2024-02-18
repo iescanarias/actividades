@@ -10,7 +10,7 @@ from __init__ import __icons_url__, __download_url__
 from jinja2 import Environment, FileSystemLoader
 from url_utils import normalize, encode
 from image_utils import html2png
-from file_utils import slugify, is_newer_than
+from file_utils import slugify, is_newer_than, anchorify
 from bs4 import BeautifulSoup
 from pprint import pprint
 
@@ -26,7 +26,7 @@ SUPPORTED_TYPES = {
     'essay':            'Ensayo',
     'numerical':        'Numérico'
 }
-SLUGGED_TYPES = { key : slugify(value) for key, value in SUPPORTED_TYPES.items() }
+ANCHORIFIED_TYPES = { key : anchorify(value) for key, value in SUPPORTED_TYPES.items() }
 
 mimetypes.init()
 
@@ -282,7 +282,7 @@ def create_readme(activity_path, force = False):
     templates_path = os.path.join(module_path, 'templates')
     env = Environment(loader = FileSystemLoader(templates_path, encoding='utf8'))
     template = env.get_template('README.activity.template.md')
-    readme = template.render(activity = activity, SUPPORTED_TYPES = SUPPORTED_TYPES, SLUGGED_TYPES = SLUGGED_TYPES, icons_url = __icons_url__)
+    readme = template.render(activity = activity, SUPPORTED_TYPES = SUPPORTED_TYPES, ANCHORIFIED_TYPES = ANCHORIFIED_TYPES, icons_url = __icons_url__)
 
     # write to file
     print("generando README.md: ", readme_file)

@@ -26,7 +26,7 @@ Ficheros de preguntas disponibles en esta actividad:
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-{% for type,questions in questions_file.types.items() %}| ![{{ type }}]({{ icons_url }}/{{ type }}.svg) | [{{ SUPPORTED_TYPES[type] }}](#{{ SLUGGED_TYPES[type] }}) | {{ questions|length }} |
+{% for type,questions in questions_file.types.items() %}| ![{{ type }}]({{ icons_url }}/{{ type }}.svg) | [{{ SUPPORTED_TYPES[type] }}](#{{ ANCHORIFIED_TYPES[type] }}) | {{ questions|length }} |
 {% endfor %}|   | **TOTAL**         | {{ questions_file.total }} |
 
 {% for type,images in questions_file.images.items() %}

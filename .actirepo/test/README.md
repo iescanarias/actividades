@@ -24,9 +24,9 @@ Ficheros de preguntas disponibles en esta actividad:
 | ![ddmarker](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/ddmarker.svg) | [Arrastrar y soltar marcadores](#arrastrar-y-soltar-marcadores) | 1 |
 | ![essay](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/essay.svg) | [Ensayo](#ensayo) | 3 |
 | ![matching](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/matching.svg) | [Emparejamiento](#emparejamiento) | 1 |
-| ![cloze](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/cloze.svg) | [Asociación](#asociacion) | 1 |
-| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | [Opción múltiple](#opcion-multiple) | 2 |
-| ![numerical](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/numerical.svg) | [Numérico](#numerico) | 1 |
+| ![cloze](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/cloze.svg) | [Asociación](#asociación) | 1 |
+| ![multichoice](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/multichoice.svg) | [Opción múltiple](#opción-múltiple) | 2 |
+| ![numerical](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/numerical.svg) | [Numérico](#numérico) | 1 |
 | ![shortanswer](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/shortanswer.svg) | [Respuesta corta](#respuesta-corta) | 1 |
 | ![truefalse](https://raw.githubusercontent.com/iescanarias/actividades/main/.actirepo/icons/truefalse.svg) | [Verdadero/Falso](#verdaderofalso) | 3 |
 |   | **TOTAL**         | 14 |
