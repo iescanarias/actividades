@@ -129,6 +129,16 @@ def _drop_text_size(text):
     """
     return htmlsize(html)
 
+# format bytes to human readable format
+def _format_bytes(size):
+    power = 2**10
+    n = 0
+    power_labels = { 0 : 'B', 1: 'KB', 2: 'MB', 3: 'GB', 4: 'TB' }
+    while size > power:
+        size /= power
+        n += 1
+    return f"{size:.0f} {power_labels[n]}"
+
 # render question as image
 def _render_image(question, destination_dir):
     type = question.get("type")
@@ -191,7 +201,6 @@ def _render_image(question, destination_dir):
                         } for drag in question.findall('drag')
                     ],
                     "background": f"data:{_get_mimetype(background_file)};{background_file.get('encoding')},{background_file.text}",
-                    "icon": f"{__icons_url__}/crosshairs.png"
                 }
             )
         case "ddimageortext":
@@ -220,7 +229,17 @@ def _render_image(question, destination_dir):
                     }
                 }
             )
-            pprint(question_data)
+        case "essay":
+            question_data.update(
+                { 
+                    "editor": question.find('responseformat').text != 'noinline',
+                    "response_lines": int(question.find('responsefieldlines').text),
+                    "file_upload": int(question.find('attachments').text) > 0,
+                    "max_size": _format_bytes(int(question.find('maxbytes').text)) if int(question.find('maxbytes').text) > 0 else "Por defecto",
+                    "max_files": int(question.find('attachments').text),
+                    "file_types": question.find('filetypeslist').text.split(',') if not question.find('filetypeslist').text is None else []
+                }
+            )        
         case _:
             return
         
@@ -228,7 +247,7 @@ def _render_image(question, destination_dir):
     templates_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'templates')
     env = Environment(loader = FileSystemLoader(templates_path, encoding='utf8'))
     template = env.get_template(f'{question_data['type']}.template.html')
-    html = template.render(question = question_data)
+    html = template.render(question = question_data, icons_url = __icons_url__)
 
     # html to image
     image_filename = _get_valid_image_filename(destination_dir, question_data['name'])

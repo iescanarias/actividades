@@ -46,6 +46,17 @@ Ficheros de preguntas disponibles en esta actividad:
 
 
 
+#### Ensayo
+
+
+![ensayo-adjunto-y-texto_0.png](images/ensayo-adjunto-y-texto_0.png)
+
+![ensayo-fichero-adjunto_0.png](images/ensayo-fichero-adjunto_0.png)
+
+![ensayo-texto_0.png](images/ensayo-texto_0.png)
+
+
+
 #### Opción múltiple
 
 

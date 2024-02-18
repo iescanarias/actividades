@@ -208,8 +208,8 @@
     <maxwordlimit></maxwordlimit>
     <attachments>1</attachments>
     <attachmentsrequired>1</attachmentsrequired>
-    <maxbytes>0</maxbytes>
-    <filetypeslist></filetypeslist>
+    <maxbytes>5242880</maxbytes>
+    <filetypeslist>.pdf,.odt</filetypeslist>
     <graderinfo format="html">
       <text></text>
     </graderinfo>
