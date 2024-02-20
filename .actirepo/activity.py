@@ -99,7 +99,11 @@ def _get_image_size(file):
     if file is None:
         return None
     with Image.open(io.BytesIO(base64.decodebytes(bytes(file.text, "utf-8")))) as img:
-        return img.size
+        size = img.size
+        return {
+            "width": size[0],
+            "height": size[1]
+        }
 
 # process attachments in question element
 def _process_attachments(element):
@@ -127,7 +131,11 @@ def _drop_text_size(text):
         <div style="padding: 5px;user-select:none;box-sizing:border-box;background-color:rgb(220, 220, 220);border-radius:0px 10px 0px 0px;vertical-align:top;margin:5px;height: auto;width: auto;cursor:move;border:1px solid rgb(0, 0, 0);display:inline-block;font:13px / 16.003px arial, helvetica, clean, sans-serif;">{text}</div>
     </div>
     """
-    return htmlsize(html)
+    size = htmlsize(html)
+    return {
+        "width": size[0],
+        "height": size[1]
+    }
 
 # format bytes to human readable format
 def _format_bytes(size):
@@ -229,6 +237,33 @@ def _render_image(question, destination_dir):
                     }
                 }
             )
+            # add drag sizes to drops
+            for choice, drop in question_data['drops'].items():
+                drop['size'] = question_data['drags'][choice]['size']
+            # group drags by draggroup
+            question_data['draggroups'] = {}
+            for drag in question_data['drags'].values():
+                if not drag['draggroup'] in question_data['draggroups']:
+                    question_data['draggroups'][drag['draggroup']] = [ drag['no'] ]
+                else:
+                    question_data['draggroups'][drag['draggroup']].append(drag['no'])
+            # get max width and height for each draggroup
+            question_data['draggroups_size'] = {}
+            for draggroup, drags in question_data['draggroups'].items():
+                max_width = 0
+                max_height = 0
+                for drag_no in drags:
+                    print(question_data['drags'][drag_no])
+                    drag_size = question_data['drags'][drag_no]['size']
+                    if drag_size['width'] > max_width:
+                        max_width = drag_size['width']
+                    if drag_size['height'] > max_height:
+                        max_height = drag_size['height']
+                question_data['draggroups_size'][draggroup] = {
+                    "width": max_width,
+                    "height": max_height
+                }
+            pprint(question_data)
         case "essay":
             question_data.update(
                 { 

@@ -78,7 +78,7 @@
       <no>3</no>
       <text>fondo</text>
 
-      <draggroup>3</draggroup>
+      <draggroup>2</draggroup>
     </drag>
     <drop>
       <text></text>
