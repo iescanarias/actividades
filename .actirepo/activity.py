@@ -33,6 +33,10 @@ ANCHORIFIED_TYPES = { key : anchorify(value) for key, value in SUPPORTED_TYPES.i
 
 mimetypes.init()
 
+def path_to_category(path):
+    parts = path.split(os.sep)
+    return [ part.capitalize() for part in parts ]
+
 # read activity descriptor
 def _read_activity(activity_path):
     # get full path to activity descriptor
@@ -44,6 +48,8 @@ def _read_activity(activity_path):
     activity = json.loads(content)
     # add path to activity descriptor
     activity['path'] = os.path.normpath(activity_path)
+    # add category to activity descriptor
+    activity['category'] = path_to_category(activity['path'])
     # if there are no files in activity descriptor, get all files in activity path
     if not 'files' in activity:
         activity['files'] = [ file for file in os.listdir(activity_path) if file.endswith('.xml') ]

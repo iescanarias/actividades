@@ -5,6 +5,19 @@ from activity import _is_activity, _read_activity
 
 REPO_FILE = 'repo.json'
 
+def list_activities(repo_path="."):
+    if not os.path.isdir(repo_path):
+        raise Exception(f'Error: {repo_path} no es un directorio')
+    activities = []
+    # walk throuth all directories
+    for root, dirs, files in os.walk(repo_path):
+        # check if is an activity
+        if _is_activity(root):
+            # get metadata
+            metadata = _read_activity(root)
+            activities.append(metadata)
+    return activities
+
 def create_index(repo_path):
     # check if path exsists
     if not os.path.isdir(repo_path):

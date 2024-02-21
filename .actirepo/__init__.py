@@ -9,7 +9,7 @@ try:
         content = json_file.read()
     # parse repo descriptor
     repo = json.loads(content)
-    print(f"Usando descriptor en el repositorio: {repo}")
+    # print(f"Usando descriptor en el repositorio: {repo}")
 except Exception as e:
     print(f"Error: {e}.", file=sys.stderr)
     print(f"No se ha encontrado un descriptor en el repositorio ({REPO_FILE}) o éste no es válido")
