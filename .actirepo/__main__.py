@@ -11,9 +11,6 @@ import repo
 from __init__ import __version__
 from dict_utils import trim_all_keys
 
-def show_version():
-    print(f"Versión: {__version__}")
-
 def list_activities(directory="."):
     activities = repo.list_activities(directory)
     print(f'Listando actividades en {directory}: ...')
@@ -47,31 +44,46 @@ def create_images(questions_file, html):
         sys.exit(1)
 
 def main():
-    parser = argparse.ArgumentParser(description="Organizador de actividades")
 
-    # define options
-    parser.add_argument('-v', '--version', action='store_true', help='Mostrar versión')
-    parser.add_argument('-l', '--list', metavar='RUTA', nargs='?', const='.', help='Listar actividades')
-    parser.add_argument('-c', '--create', metavar='RUTA', nargs='?', const='.', help='Crear los metadatos de la actividad en el directorio especificado (o directorio actual si no se proporciona)')
-    parser.add_argument('-R', '--readme', metavar='RUTA', help='Crear README.md para actividad en el directorio especificado')
-    parser.add_argument('-r', '--recursive', action='store_true', help='Buscar actividades recursivamente en subdirectorios. Se puede combinar con --readme y --create')
-    parser.add_argument('-f', '--force', action='store_true', help='Forzar la creación de README.md aunque no sea necesario')
-    parser.add_argument('-i', '--images', metavar='FICHERO', help='Genera imágenes de las preguntas')
-    parser.add_argument('-H', '--html', action='store_true', help='Genera HTML de las preguntas')
+    # declara un HelpFormatter personalizado para reemplazar el texto 'usage:' por 'Uso:'
+    class CustomHelpFormatter(argparse.HelpFormatter):
+        def add_usage(self, usage, actions, groups, prefix='Uso: '):
+            if usage is not argparse.SUPPRESS:
+                args = usage, actions, groups, prefix
+                self._add_item(self._format_usage, args)
 
-    # parse arguments
+    # define el parser
+    parser = argparse.ArgumentParser(prog='actirepo', description='Organizador de actividades', epilog='¡Espero que te sea útil!', add_help=False, formatter_class=CustomHelpFormatter)
+
+    # define los comandos (mutuamente excluyentes)
+    commands = parser.add_argument_group('Comandos')
+    commands = commands.add_mutually_exclusive_group(required=True)
+    commands.add_argument('-h', '--help', action='store_true', help='Muestra esta ayuda y termina')
+    commands.add_argument('-v', '--version', action='version', help='Mostrar versión', version=f'%(prog)s {__version__}')
+    commands.add_argument('-l', '--list', metavar='RUTA', nargs='?', const='.', help='Listar actividades')
+    commands.add_argument('-c', '--create', metavar='RUTA', nargs='?', const='.', help='Crear los metadatos de la actividad en el directorio especificado (o directorio actual si no se proporciona)')
+    commands.add_argument('-i', '--images', metavar='FICHERO', help='Genera imágenes de las preguntas')
+    commands.add_argument('-R', '--readme', metavar='RUTA', help='Crear README.md para actividad en el directorio especificado')
+
+    # define las opciones adicionales a los comandos
+    options = parser.add_argument_group('Opciones')
+    options.add_argument('-r', '--recursive', action='store_true', help='Buscar actividades recursivamente en subdirectorios. Se puede combinar con --readme y --create')
+    options.add_argument('-f', '--force', action='store_true', help='Forzar la creación de README.md aunque no sea necesario')
+    options.add_argument('-H', '--html', action='store_true', help='Genera HTML de las preguntas')
+
+    # parsea los argumentos
     args = parser.parse_args()
 
-    # Lógica según las opciones
-    if args.version:
-        show_version()
-    elif args.list is not None:
+    # lógica según las opciones
+    if args.help:
+        parser.print_help()
+    elif args.list:
         list_activities(args.list)
-    elif args.create is not None:
+    elif args.create:
         create_activity(args.create, args.recursive)
     elif args.readme:
         create_readmes(args.readme, args.recursive, args.force)
-    elif args.images is not None:
+    elif args.images:
         create_images(args.images, args.html)
 
 if __name__ == "__main__":

@@ -81,7 +81,7 @@ def _get_questions_from_file(activity_path, file):
         'total': sum([len(type) for type in types.values()])
     }
 
-# get questions from questions
+# get all questions from activity's question files
 def _get_questions(activity):
     all_questions = []
     for file in activity['files']:
@@ -257,7 +257,6 @@ def _render_image(question, destination_dir):
                 max_width = 0
                 max_height = 0
                 for drag_no in drags:
-                    print(question_data['drags'][drag_no])
                     drag_size = question_data['drags'][drag_no]['size']
                     if drag_size['width'] > max_width:
                         max_width = drag_size['width']
@@ -267,7 +266,6 @@ def _render_image(question, destination_dir):
                     "width": max_width,
                     "height": max_height
                 }
-            pprint(question_data)
         case "essay":
             question_data.update(
                 { 
@@ -380,8 +378,6 @@ def create_readme(activity_path, force = False):
 
     # generate images
     _generate_images(activity, force)
-    
-    pprint(activity)
 
     # get script path
     module_path = os.path.dirname(os.path.realpath(__file__))
