@@ -14,6 +14,6 @@ jobs:
 
       # Usar la acción personalizada desde actirepo
       - name: Ejecutar actirepo
-        uses: teuton-software/actirepo@v0.2.0
+        uses: teuton-software/actirepo@main
         with:
           branch: "main"
