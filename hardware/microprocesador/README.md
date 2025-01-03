@@ -26,7 +26,7 @@ Ficheros de preguntas disponibles en esta actividad:
 #### Selección múltiple
 
 
-![atom n570](images/análisis microprocesadores intel/atom-n570_1.png)
+![atom n570](images/análisis%20microprocesadores%20intel/atom-n570_1.png)
 
 ![atom n570](images/análisis microprocesadores intel/atom-n570_2.png)
 
