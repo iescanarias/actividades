@@ -30,4 +30,4 @@ title: Repositorio de actividades de informática
 
 
 ---
-Generated with :heart: by [actirepo v0.1.0](https://github.com/teuton-software/actirepo)
+Generated with :heart: by [actirepo v0.2.0](https://github.com/teuton-software/actirepo)
