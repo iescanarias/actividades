@@ -14,7 +14,7 @@ Ficheros de preguntas disponibles en esta actividad:
 
 
 
-### [la fuente de alimentación.xml](la fuente de alimentación.xml)
+### [la fuente de alimentación.xml](la%20fuente%20de%20alimentaci%C3%B3n.xml)
 
 
 |   | Tipo              | Cantidad                   |
@@ -26,25 +26,15 @@ Ficheros de preguntas disponibles en esta actividad:
 #### Selección múltiple
 
 
-![adaptador de corriente](images/la fuente de alimentación/adaptador-de-corriente_1.png)
+![adaptador de corriente](images/la%20fuente%20de%20alimentaci%C3%B3n/adaptador-de-corriente_1.png)
 
-![at](images/la fuente de alimentación/at_1.png)
+![at](images/la%20fuente%20de%20alimentaci%C3%B3n/at_1.png)
 
-![atx](images/la fuente de alimentación/atx_1.png)
+![atx](images/la%20fuente%20de%20alimentaci%C3%B3n/atx_1.png)
 
-![atx](images/la fuente de alimentación/atx_2.png)
+![atx](images/la%20fuente%20de%20alimentaci%C3%B3n/atx_2.png)
 
-![bateria](images/la fuente de alimentación/bateria_1.png)
-
-![berg](images/None)
-
-![fuente de alimentacion](images/None)
-
-![fuente de alimentacion](images/None)
-
-![fuente de alimentacion](images/None)
-
-![molex](images/None)
+![bateria](images/la%20fuente%20de%20alimentaci%C3%B3n/bateria_1.png)
 
 
 

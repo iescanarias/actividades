@@ -15,7 +15,7 @@ Ficheros de preguntas disponibles en esta actividad:
 
 
 
-### [normas T-568A y T-568B.xml](normas T-568A y T-568B.xml)
+### [normas T-568A y T-568B.xml](normas%20T-568A%20y%20T-568B.xml)
 
 
 |   | Tipo              | Cantidad                   |
@@ -28,34 +28,30 @@ Ficheros de preguntas disponibles en esta actividad:
 #### Arrastrar y soltar imagen o texto
 
 
-![01 Arrastrar etiquetas sobre conector con norma T-568A](images/normas T-568A y T-568B/01-arrastrar-etiquetas-sobre-conector-con-norma-t-568a_1.png)
+![01 Arrastrar etiquetas sobre conector con norma T-568A](images/normas%20T-568A%20y%20T-568B/01-arrastrar-etiquetas-sobre-conector-con-norma-t-568a_1.png)
 
-![02 Arrastrar etiquetas sobre conector con norma T-568B](images/normas T-568A y T-568B/02-arrastrar-etiquetas-sobre-conector-con-norma-t-568b_1.png)
+![02 Arrastrar etiquetas sobre conector con norma T-568B](images/normas%20T-568A%20y%20T-568B/02-arrastrar-etiquetas-sobre-conector-con-norma-t-568b_1.png)
 
-![03 Arrastrar etiquetas para formar cable directo T-568A](images/normas T-568A y T-568B/03-arrastrar-etiquetas-para-formar-cable-directo-t-568a_1.png)
+![03 Arrastrar etiquetas para formar cable directo T-568A](images/normas%20T-568A%20y%20T-568B/03-arrastrar-etiquetas-para-formar-cable-directo-t-568a_1.png)
 
-![04 Arrastrar etiquetas para formar cable cruzado](images/normas T-568A y T-568B/04-arrastrar-etiquetas-para-formar-cable-cruzado_1.png)
+![04 Arrastrar etiquetas para formar cable cruzado](images/normas%20T-568A%20y%20T-568B/04-arrastrar-etiquetas-para-formar-cable-cruzado_1.png)
 
-![09 Arrastrar marcadores a panel de parcheo T-568A sin código colores](images/normas T-568A y T-568B/09-arrastrar-marcadores-a-panel-de-parcheo-t-568a-sin-codigo-colores_1.png)
-
-![10 Arrastrar marcadores a panel de parcheo T-568A sin código colores](images/None)
-
-![12 Arrastrar etiquetas sobre conector hembra RJ-45 norma T-568A](images/None)
+![09 Arrastrar marcadores a panel de parcheo T-568A sin código colores](images/normas%20T-568A%20y%20T-568B/09-arrastrar-marcadores-a-panel-de-parcheo-t-568a-sin-codigo-colores_1.png)
 
 
 
 #### Arrastrar y soltar marcador
 
 
-![05 Arrastrar marcadores a panel de parcheo T-568A con código colores](images/normas T-568A y T-568B/05-arrastrar-marcadores-a-panel-de-parcheo-t-568a-con-codigo-colores_1.png)
+![05 Arrastrar marcadores a panel de parcheo T-568A con código colores](images/normas%20T-568A%20y%20T-568B/05-arrastrar-marcadores-a-panel-de-parcheo-t-568a-con-codigo-colores_1.png)
 
-![06 Arrastrar marcadores a panel de parcheo T-568B con código colores](images/normas T-568A y T-568B/06-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_1.png)
+![06 Arrastrar marcadores a panel de parcheo T-568B con código colores](images/normas%20T-568A%20y%20T-568B/06-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_1.png)
 
-![07 Arrastrar marcadores a panel de parcheo T-568B con código colores](images/normas T-568A y T-568B/07-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_1.png)
+![07 Arrastrar marcadores a panel de parcheo T-568B con código colores](images/normas%20T-568A%20y%20T-568B/07-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_1.png)
 
-![08 Arrastrar marcadores a panel de parcheo T-568B sin código colores](images/normas T-568A y T-568B/08-arrastrar-marcadores-a-panel-de-parcheo-t-568b-sin-codigo-colores_1.png)
+![08 Arrastrar marcadores a panel de parcheo T-568B sin código colores](images/normas%20T-568A%20y%20T-568B/08-arrastrar-marcadores-a-panel-de-parcheo-t-568b-sin-codigo-colores_1.png)
 
-![11 Arrastrar marcadores a panel de parcheo T-568B con código colores](images/normas T-568A y T-568B/11-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_1.png)
+![11 Arrastrar marcadores a panel de parcheo T-568B con código colores](images/normas%20T-568A%20y%20T-568B/11-arrastrar-marcadores-a-panel-de-parcheo-t-568b-con-codigo-colores_1.png)
 
 
 

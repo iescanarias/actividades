@@ -14,7 +14,7 @@ Ficheros de preguntas disponibles en esta actividad:
 
 
 
-### [análisis microprocesadores intel.xml](análisis%20microprocesadores%20intel.xml)
+### [análisis microprocesadores intel.xml](an%C3%A1lisis%20microprocesadores%20intel.xml)
 
 
 |   | Tipo              | Cantidad                   |
@@ -26,149 +26,15 @@ Ficheros de preguntas disponibles en esta actividad:
 #### Selección múltiple
 
 
-![atom n570](images/análisis%20microprocesadores%20intel/atom-n570_1.png)
+![atom n570](images/an%C3%A1lisis%20microprocesadores%20intel/atom-n570_1.png)
 
-![atom n570](images/análisis microprocesadores intel/atom-n570_2.png)
+![atom n570](images/an%C3%A1lisis%20microprocesadores%20intel/atom-n570_2.png)
 
-![atom n570](images/análisis microprocesadores intel/atom-n570_3.png)
+![atom n570](images/an%C3%A1lisis%20microprocesadores%20intel/atom-n570_3.png)
 
-![atom n570](images/análisis microprocesadores intel/atom-n570_4.png)
+![atom n570](images/an%C3%A1lisis%20microprocesadores%20intel/atom-n570_4.png)
 
-![atom n570](images/análisis microprocesadores intel/atom-n570_5.png)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570](images/None)
-
-![atom n570core i5 460m](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![celeron d 352](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i3 2330e](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i5 460m](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
-
-![core i7 2670qm](images/None)
+![atom n570](images/an%C3%A1lisis%20microprocesadores%20intel/atom-n570_5.png)
 
 
 

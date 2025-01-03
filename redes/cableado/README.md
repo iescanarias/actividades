@@ -24,5 +24,5 @@ Preguntas sobre cableado de redes.
 | Nombre              | Descripción                   | Dificultad | Preguntas |
 | ------------------- | ----------------------------- | ---------- | --------- |
 | [Tipos de apantallamiento](apantallamiento) | Preguntas de opción múltiple y de arrastrar y soltar marcadores | ![Dificultad](https://img.shields.io/badge/Baja-green) | 10 |
-| [Normas T-568A y T-568B](normas T-568A y T-568B) | Preguntas de arrastrar y soltar sobre una imagen y de arrastrar y soltar marcadores | ![Dificultad](https://img.shields.io/badge/Media-yellow) | 12 |
+| [Normas T-568A y T-568B](normas%20T-568A%20y%20T-568B) | Preguntas de arrastrar y soltar sobre una imagen y de arrastrar y soltar marcadores | ![Dificultad](https://img.shields.io/badge/Media-yellow) | 12 |
 
