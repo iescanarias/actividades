@@ -17,3 +17,4 @@ jobs:
         uses: teuton-software/actirepo@main
         with:
           branch: "main"
+          token: ${{ secrets.GITHUB_TOKEN }}
