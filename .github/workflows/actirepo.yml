@@ -8,10 +8,6 @@ jobs:
   actirepo-job:
     runs-on: ubuntu-latest
     steps:
-      # Checkout del repositorio actual
-      - name: Checkout del código
-        uses: actions/checkout@v3
-
       # Usar la acción personalizada desde actirepo
       - name: Ejecutar actirepo
         uses: teuton-software/actirepo@main
