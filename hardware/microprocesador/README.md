@@ -14,7 +14,7 @@ Ficheros de preguntas disponibles en esta actividad:
 
 
 
-### [análisis microprocesadores intel.xml](analisis-microprocesadores-intel.xml)
+### [análisis microprocesadores intel.xml](análisis%20microprocesadores%20intel.xml)
 
 
 |   | Tipo              | Cantidad                   |
