@@ -3,20 +3,12 @@ on:
   push:
     branches:
       - main
-
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   actirepo-job:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      # Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      # Usar la acción personalizada desde actirepo
       - name: Ejecutar actirepo
         uses: teuton-software/actirepo@main
         with:
