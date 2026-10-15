@@ -1,0 +1,9 @@
+{
+  "name": "Componentes de la placa base",
+  "description": "Preguntas de arrastrar y soltar para identificar los componentes y conectores de una placa base.",
+  "difficulty": "easy",
+  "author": {
+    "name": "Noemí Pérez",
+    "email": "nperpere@gobiernodecanarias.org"
+  }
+}
