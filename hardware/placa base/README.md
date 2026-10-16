@@ -4,38 +4,23 @@ title: Placa base
 
 # Placa base
 
-![Dificultad](https://img.shields.io/badge/Dificultad-Desconocida-black)
-
-
+Actividades sobre las placas base, sus componentes y conectores.
 
 ## Contenido
-
-Ficheros de preguntas disponibles en esta actividad:
-
-
-
-### [la placa base.xml](la%20placa%20base.xml)
 
 
 |   | Tipo              | Cantidad                   |
 | - | ----------------- | -------------------------- |
-| ![multichoice](https://raw.githubusercontent.com/teuton-software/actirepo/master/icons/multichoice.svg) | [Selección múltiple](#selección-múltiple) | 111 |
-|   | **TOTAL**         | 111 |
-
-
-#### Selección múltiple
-
-
-![FUW: Placa base](images/la%20placa%20base/fuw-placa-base_1.png)
-
-![FUW: Placa base](images/la%20placa%20base/fuw-placa-base_2.png)
-
-![FUW: Placa base](images/la%20placa%20base/fuw-placa-base_3.png)
-
-![FUW: Placa base](images/la%20placa%20base/fuw-placa-base_4.png)
-
-![FUW: Placa base](images/la%20placa%20base/fuw-placa-base_5.png)
+| ![ddimageortext](https://raw.githubusercontent.com/teuton-software/actirepo/master/icons/ddimageortext.svg) | Arrastrar y soltar imagen o texto | 4 |
+| ![ddmarker](https://raw.githubusercontent.com/teuton-software/actirepo/master/icons/ddmarker.svg) | Arrastrar y soltar marcador | 2 |
+|   | **TOTAL**         | 6 |
 
 
 
+
+
+## Actividades
+| Nombre              | Descripción                   | Dificultad | Preguntas |
+| ------------------- | ----------------------------- | ---------- | --------- |
+| [Componentes de la placa base](arrastrar-soltar-placa-base) | Preguntas de arrastrar y soltar para identificar los componentes y conectores de una placa base. | ![Dificultad](https://img.shields.io/badge/Baja-green) | 6 |
 

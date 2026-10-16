@@ -13,7 +13,15 @@ Hardware del PC
 | - | ----------------- | -------------------------- |
 | ![multichoice](https://raw.githubusercontent.com/teuton-software/actirepo/master/icons/multichoice.svg) | Selección múltiple | 556 |
 | ![truefalse](https://raw.githubusercontent.com/teuton-software/actirepo/master/icons/truefalse.svg) | Verdadero/Falso | 17 |
-|   | **TOTAL**         | 573 |
+| ![ddimageortext](https://raw.githubusercontent.com/teuton-software/actirepo/master/icons/ddimageortext.svg) | Arrastrar y soltar imagen o texto | 4 |
+| ![ddmarker](https://raw.githubusercontent.com/teuton-software/actirepo/master/icons/ddmarker.svg) | Arrastrar y soltar marcador | 2 |
+|   | **TOTAL**         | 579 |
+
+
+## Subcategorías
+| Nombre              | Descripción                   | Preguntas |
+| ------------------- | ----------------------------- | --------- |
+| [Placa base](placa%20base) | Actividades sobre las placas base, sus componentes y conectores. | 6 |
 
 
 
