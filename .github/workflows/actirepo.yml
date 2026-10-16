@@ -10,7 +10,7 @@ jobs:
       contents: write
     steps:
       - name: Ejecutar actirepo
-        uses: teuton-software/actirepo@main
+        uses: noeper/actirepo@main
         with:
           branch: "main"
           token: ${{ secrets.GITHUB_TOKEN }}
